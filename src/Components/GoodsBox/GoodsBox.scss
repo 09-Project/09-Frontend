@@ -1,0 +1,74 @@
+.goodsComponent {
+  display: flex;
+  justify-content: space-between;
+  .GoodsBoxEachBox {
+    width: 242px;
+    height: 366px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    background-color: white;
+    .GoodsImg {
+      width: 242px;
+      height: 242px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #9a9a9a;
+      position: relative;
+      img {
+        color: white;
+        font-size: 30px;
+        font-family: "Noto Sans CJK KR";
+        font-weight: bold;
+      }
+      .typeOfGoods {
+        position: absolute;
+        width: 60px;
+        height: 20px;
+        background-color: white;
+        bottom: 17px;
+        left: 16px;
+        display: flex;
+        .typeCircle {
+          margin: 4px 2px 4px 4px;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: black;
+        }
+        .typeWord {
+          font-size: 10px;
+          font-weight: bold;
+          font-family: "Noto Sans CJK KR";
+          margin: 2px 5px 3px 0;
+        }
+      }
+    }
+    .GoodsInfo {
+      width: 242px;
+      height: 88px;
+      border-bottom: 1px solid #707070;
+      .goodsTitle {
+        margin: 11px 0 0 16px;
+        font-size: 18px;
+        font-family: "Noto Sans CJK KR";
+      }
+      .goodsPrice {
+        margin: 4px 0 0 16px;
+        display: flex;
+        font-family: "Noto Sans CJK KR";
+
+        font-weight: bold;
+        p {
+          margin: 0;
+          font-size: 24px;
+          margin-right: 4px;
+        }
+        .won {
+          font-size: 14px;
+          margin-top: 11px;
+        }
+      }
+    }
+  }
+}
