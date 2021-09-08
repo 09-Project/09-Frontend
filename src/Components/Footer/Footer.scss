@@ -1,3 +1,4 @@
+$max-width: 1440px;
 .Footer {
   width: 100%;
   margin-top: 248px;
@@ -6,6 +7,33 @@
     width: 100%;
     height: 142px;
     border-bottom: 1px solid #bdbdbd;
+    .developTypeContainer {
+      display: flex;
+      width: 60%;
+      margin: 0 auto;
+      padding-top: 25px;
+      justify-content: space-between;
+      text-align: center;
+      .developerInfoEachBox {
+        display: flex;
+        flex-direction: column;
+        @media (max-width: $max-width) {
+          margin: 0 25px;
+        }
+        margin: 0 50px;
+        .developType {
+          margin: 0;
+          font-size: 20px;
+          font-family: "Noto Sans CJK KR";
+        }
+        .develpoerName {
+          margin: 25px 0 0 0;
+          font-size: 20px;
+          font-family: "Noto Sans CJK KR";
+          text-align: center;
+        }
+      }
+    }
   }
   .outInfo {
     width: 100%;
