@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import LoginModal from '../LoginModal/LoginModal';
 import './Header.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch,faPlusSquare,faUserAlt,faHeart } from '@fortawesome/free-solid-svg-icons'
 function Header(){
     const [loginStatus,setLoginStatus] = useState(false);
+    const [loginModalStatus,setLoginModalStatus] = useState(true);
   return(
       <section className="HeaderSection">
         <div className="HeaderDiv">
