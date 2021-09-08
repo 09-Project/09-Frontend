@@ -1,13 +1,23 @@
+$max-width: 1440px;
 .goodsComponent {
   display: flex;
   justify-content: space-between;
+  width: 100%;
   .GoodsBoxEachBox {
+    @media (max-width: $max-width) {
+      width: 220px;
+      height: 330px;
+    }
     width: 242px;
     height: 366px;
     border: 1px solid black;
     box-sizing: border-box;
     background-color: white;
     .GoodsImg {
+      @media (max-width: $max-width) {
+        width: 220px;
+        height: 220px;
+      }
       width: 242px;
       height: 242px;
       display: flex;
@@ -45,19 +55,27 @@
       }
     }
     .GoodsInfo {
-      width: 242px;
+      width: 100%;
+      @media (max-width: $max-width) {
+        height: 80px;
+      }
       height: 88px;
       border-bottom: 1px solid #707070;
       .goodsTitle {
-        margin: 11px 0 0 16px;
+        @media (max-width: $max-width) {
+          padding: 11px 0 0 16px;
+          font-size: 16px;
+        }
+        margin: 0;
+        padding: 11px 0 0 16px;
         font-size: 18px;
         font-family: "Noto Sans CJK KR";
       }
       .goodsPrice {
-        margin: 4px 0 0 16px;
+        padding: 4px 0 0 16px;
+        margin: 0;
         display: flex;
         font-family: "Noto Sans CJK KR";
-
         font-weight: bold;
         p {
           margin: 0;
@@ -68,6 +86,24 @@
           font-size: 14px;
           margin-top: 11px;
         }
+      }
+    }
+    .GoodsLocation {
+      display: flex;
+      align-items: center;
+      @media (max-width: $max-width) {
+        font-size: 16px;
+        height: 29px;
+      }
+      i {
+        width: 12px;
+        height: 16px;
+        margin: 0 0 0 10px;
+        display: flex;
+        text-align: center;
+      }
+      p {
+        margin: 0 0 0 8px;
       }
     }
   }

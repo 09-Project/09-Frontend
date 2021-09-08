@@ -1,5 +1,7 @@
 import React from 'react';
 import './GoodsBox.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 
 function GoodsBox(props){
     const {value} = props;
@@ -17,6 +19,9 @@ function GoodsBox(props){
                 <div className="GoodsInfo">
                     <p className="goodsTitle">{list.title}</p>
                     <p className="goodsPrice"><p>{list.price}</p><div className="won">원</div></p>
+                </div>
+                <div className="GoodsLocation">
+                    <i><FontAwesomeIcon icon={faMapMarkerAlt}/></i><p>{list.location}</p>
                 </div>
             </div>
           )}
