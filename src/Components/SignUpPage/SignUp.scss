@@ -1,5 +1,5 @@
-$max-width: 1440px;
-$percentWidth: 80%;
+$max-width: 1600px;
+$miniScreenWidth: 1150px;
 $BigScreenWidth: 1000px;
 .SignUpPage {
   z-index: 98;
@@ -8,7 +8,7 @@ $BigScreenWidth: 1000px;
   background-color: white;
   .SignUpContainer {
     @media (max-width) {
-      width: $percentWidth;
+      width: $miniScreenWidth;
     }
     width: $BigScreenWidth;
     margin: 0 auto;
@@ -96,6 +96,9 @@ $BigScreenWidth: 1000px;
             width: 75%;
             padding-left: 10px;
             outline: none;
+            label {
+              width: 25%;
+            }
           }
         }
       }
@@ -121,10 +124,15 @@ $BigScreenWidth: 1000px;
         background-color: #737373;
         color: #ffffff;
       }
-      .cancle {
-        background-color: white;
-        border: 1px solid #707070;
-        color: #848484;
+      a {
+        width: 48%;
+        height: 100%;
+        .cancle {
+          width: 100%;
+          background-color: white;
+          border: 1px solid #707070;
+          color: #848484;
+        }
       }
     }
   }

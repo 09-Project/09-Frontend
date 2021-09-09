@@ -3,15 +3,17 @@ import './SignUp.scss';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye,faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 function SignUp(){
   const postHeader = {
     'Content-type': 'application/json'
   }
-  const [inputEye,setInputEye] = useState(false);
-  const [nickName,setNickName] = useState('')
-  const [id,setId] = useState('');
-  const [password,setPassword] = useState({
+  const [mainShow,setMainPage] = useState(false); //나중에 useState 1개로
+  const [checkShow,setCheckShow] = useState(false); //나중에 useState 1개로
+  const [nickName,setNickName] = useState('') //나중에 useState 1개로
+  const [id,setId] = useState(''); //나중에 useState 1개로
+  const [password,setPassword] = useState({ //나중에 useState 1개로
     makepassword : '',
     verifyPassword : ''
   })
@@ -40,14 +42,28 @@ function SignUp(){
       },{headers:postHeader})
       .then(function(respose){
         console.log(respose);
+        setId('')
+        setNickName('')
+        setPassword({
+          makepassword : '',
+          verifyPassword : ''
+        })
+      })
+      .error(function(){
+        alert("오류");
       })
     } else {
-      alert("오류")
+      alert("오류");
     }
   }
-  const onClickHiddenOrShow = () => {
-      if(inputEye) setInputEye(false);
-      else setInputEye(true);
+
+  const mainShowHide = () => {
+    if(mainShow)setMainPage(false)
+    else setMainPage(true)
+  }
+  const checkShowHide = () => {
+    if(checkShow)setCheckShow(false)
+    else setCheckShow(true)
   }
   return(
       <section className="SignUpPage">
@@ -62,12 +78,25 @@ function SignUp(){
             <div className="inputSection">
               <div className="eachInput"><p>닉네임</p><input onChange={onChangeNickName} type="text" value={nickName} /></div>
               <div className="eachInput"><p>아이디</p><input name="makepassword" onChange={onChangeId} type="text" value={id} /></div>
-              <div className="eachInput"><p>비밀번호</p><div><input name="makepassword" id="input" onChange={onChangePassword} type={inputEye ? "text" : "password"} value={makepassword} /><label onClick={onClickHiddenOrShow} htmlFor="input"><FontAwesomeIcon icon={inputEye ? faEye : faEyeSlash}/></label></div></div>
-              <div className="eachInput"><p>비밀번호 확인</p><input name="verifyPassword"  onChange={onChangePassword} type="password" value={verifyPassword} /></div>
+              <div className="eachInput">
+                <p>비밀번호</p>
+                <div>
+                  <input name="makepassword" id="input" onChange={onChangePassword} type={mainShow ? "text" : "password"} value={makepassword} />
+                  <label onClick={mainShowHide} htmlFor="input">
+                    <FontAwesomeIcon  icon={mainShow ? faEye : faEyeSlash}/></label>
+                </div>
+              </div>
+              <div className="eachInput">
+                <p>비밀번호 확인</p>
+                <div><input name="verifyPassword" id="check"  onChange={onChangePassword} type={checkShow ? "text" : "password"} value={verifyPassword} />
+                  <label  onClick={checkShowHide} htmlFor="check">
+                    <FontAwesomeIcon  icon={checkShow ? faEye : faEyeSlash}/>
+                  </label></div>
+                </div>
             </div>
             <div className="signUpInputSection">
               <button className="submit" onClick={onClickSubmit}>확인</button>
-              <button className="cancle">취소</button>
+              <Link to="/"><button className="cancle">취소</button></Link>
             </div>
           </div>
         </div>
