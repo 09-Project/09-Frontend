@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {loginModalStatus ? <LoginModal onclickModalOnOff={onclickModalOnOff} />: ''}
+        {loginModalStatus ? <LoginModal setLoginModalStatus={setLoginModalStatus} onclickModalOnOff={onclickModalOnOff} />: ''}
         <Route path="/signup" component={SignUp}/>
         <Header loginStatus={loginStatus} onclickModalOnOff={onclickModalOnOff}/>
         <Route exact path="/" component={MainPage} />

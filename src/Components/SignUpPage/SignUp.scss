@@ -72,10 +72,12 @@ $BigScreenWidth: 1000px;
         .eachInput {
           display: flex;
           div {
-            width: 81%;
+            width: 76%;
+            padding-left: 10px;
             margin-left: auto;
             border: 1px solid black;
             display: flex;
+            border-radius: 2px;
             input {
               width: 90%;
               border: none;
@@ -91,7 +93,9 @@ $BigScreenWidth: 1000px;
           }
           input {
             margin-left: auto;
-            width: 80%;
+            width: 75%;
+            padding-left: 10px;
+            outline: none;
           }
         }
       }

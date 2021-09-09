@@ -3,12 +3,16 @@ import { Link } from 'react-router-dom';
 import SignUp from '../SignUpPage/SignUp';
 import './LoginModal.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faTimes,faEye,faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import OutsideClickHandler from 'react-outside-click-handler';
 
 function LoginModal(props){
-  const {onclickModalOnOff} = props;
+  const {onclickModalOnOff,setLoginModalStatus} = props;
   return(
-    <section className="loginModal">
+    <section className="loginModal" name="backGround">
+      <OutsideClickHandler onOutsideClick={()=>{
+        setLoginModalStatus(false)
+      }}>
       <div className="modalContents">
         <div onClick={onclickModalOnOff} className="closeImg" ><FontAwesomeIcon icon={faTimes}/></div>
         <i><img src="" alt="" /></i>
@@ -24,6 +28,7 @@ function LoginModal(props){
           <Link className="button" onClick={onclickModalOnOff} to="signup">JOIN US</Link>
         </div>
     </div>
+    </OutsideClickHandler>
 </section>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import './MainPage.scss';
 import GoodsBox from '../../GoodsBox/GoodsBox';
+
 function MainPage(){
   const RecomendGoddsArr = [
     [
