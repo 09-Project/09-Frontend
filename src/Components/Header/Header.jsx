@@ -3,13 +3,12 @@ import LoginModal from '../LoginModal/LoginModal';
 import './Header.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch,faPlusSquare,faUserAlt,faHeart } from '@fortawesome/free-solid-svg-icons'
-function Header(){
-    const [loginStatus,setLoginStatus] = useState(false);
-    const [loginModalStatus,setLoginModalStatus] = useState(true);
+function Header(props){
+    const {loginStatus,onclickModalOnOff} = props;
   return(
       <section className="HeaderSection">
         <div className="HeaderDiv">
-            <div className="HeaderTop"><div className="loginStatus">{loginStatus ? <p>로그아웃</p> : <p>로그인 / 회원가입</p>}</div></div>
+            <div className="HeaderTop"><div className="loginStatus">{loginStatus ? <p>로그아웃</p> : <p onClick={onclickModalOnOff}>로그인 / 회원가입</p>}</div></div>
             <div className="HeaderNavBar">
                 <div className="HeaderNavBarLeft">
                     <i className="09Logo"><img src="" alt="Logo" /></i>
