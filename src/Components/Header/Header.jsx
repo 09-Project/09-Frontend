@@ -3,6 +3,7 @@ import LoginModal from '../LoginModal/LoginModal';
 import './Header.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch,faPlusSquare,faUserAlt,faHeart } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 function Header(props){
     const {loginStatus,onclickModalOnOff} = props;
   return(
@@ -19,7 +20,7 @@ function Header(props){
                 <nav className="HeaderNavBarRight">
                     <ul className="nav">
                         <li><i><FontAwesomeIcon className="headerIcon" icon={faPlusSquare}/></i><p>게시물 올리기</p></li>
-                        <li className="leftLine"><i><FontAwesomeIcon className="headerIcon" icon={faUserAlt}/></i><p>마이페이지</p></li>
+                        <li className="leftLine"><i><FontAwesomeIcon className="headerIcon" icon={faUserAlt}/></i><Link to="/mypage"><p>마이페이지</p></Link></li>
                         <li className="leftLine"><i><FontAwesomeIcon className="headerIcon" icon={faHeart}/></i><p>찜한 상품</p></li>
                     </ul>
                 </nav>

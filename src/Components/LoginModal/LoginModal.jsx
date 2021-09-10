@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
-import SignUp from '../SignUpPage/SignUp';
+import SignUp from '../Pages/SignUpPage/SignUp';
 import './LoginModal.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes,faEye,faEyeSlash } from '@fortawesome/free-solid-svg-icons'

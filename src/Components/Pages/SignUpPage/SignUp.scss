@@ -1,20 +1,17 @@
 $max-width: 1600px;
 $miniScreenWidth: 1150px;
-$BigScreenWidth: 1000px;
+$BigScreenWidth: 1300px;
 .SignUpPage {
   z-index: 98;
   width: 100%;
   position: absolute;
   background-color: white;
   .SignUpContainer {
-    @media (max-width) {
+    @media (max-width: $max-width) {
       width: $miniScreenWidth;
     }
     width: $BigScreenWidth;
     margin: 0 auto;
-    // .empty {
-    //   height: 5vh;
-    // }
     .logoInSignup {
       height: 100px;
       border-bottom: 1px solid #707070;

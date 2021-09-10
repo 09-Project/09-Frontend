@@ -5,7 +5,8 @@ import LoginModal from "./Components/LoginModal/LoginModal";
 import { BrowserRouter } from 'react-router-dom';
 import { Route } from "react-router";
 import React,{useState} from 'react';
-import SignUp from "./Components/SignUpPage/SignUp";
+import SignUp from "./Components/Pages/SignUpPage/SignUp";
+import MyPage from "./Components/Pages/MyPage/MyPage";
 
 function App() {
   const onclickModalOnOff = () => {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/signup" component={SignUp}/>
         <Header loginStatus={loginStatus} onclickModalOnOff={onclickModalOnOff}/>
         <Route exact path="/" component={MainPage} />
+        <Route path="mypage" component={MyPage}/>
         <Footer/>
       </BrowserRouter>
     </div>

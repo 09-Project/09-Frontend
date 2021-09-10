@@ -1,7 +1,7 @@
 $max-width: 1600px;
 .loginModal {
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.35);
   width: 100%;
   height: 100%;
   z-index: 99;
@@ -16,11 +16,10 @@ $max-width: 1600px;
     display: flex;
     flex-direction: column;
     .closeImg {
-      width: 95%;
       height: 55px;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
+      margin-left: auto;
+      margin-right: 20px;
+      padding-top: 10px;
     }
     i {
       @media (max-width: $max-width) {
