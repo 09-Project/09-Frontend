@@ -13,9 +13,7 @@ $max-width: 1600px;
       box-sizing: border-box;
       border-bottom: 1px solid #bdbdbd;
       .loginStatus {
-        @media (max-width: $max-width) {
-          width: $miniScreenWidth;
-        }
+        width: 1150px;
         height: 100%;
         margin: 0 auto;
         display: flex;
