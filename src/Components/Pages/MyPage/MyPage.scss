@@ -1,0 +1,75 @@
+$miniScreenWidth: 1150px;
+$max-width: 1600px;
+.MyPage {
+  width: 100%;
+  .MyPageContents {
+    width: $miniScreenWidth;
+    margin: 0 auto;
+    .Title {
+      padding: 55px 0 55px 37px;
+      margin: 0;
+      @media (max-width: $max-width) {
+        font-size: 20px;
+      }
+      font-size: 36px;
+      font-family: "Noto Sans CJK KR";
+      font-weight: bold;
+      border-bottom: 2px solid #707070;
+    }
+    .myInfo {
+      margin: 60px 0 0 37px;
+      display: flex;
+      img {
+        width: 240px;
+        height: 240px;
+      }
+      .myIntoduce {
+        margin-left: 32px;
+        .wirterName {
+          @media (max-width: $max-width) {
+            font-size: 18px;
+          }
+          font-size: 28px;
+          font-family: "Noto Sans CJK KR";
+          font-weight: bold;
+        }
+        .wirterActivity {
+          display: flex;
+          margin-top: 12px;
+          .line {
+            margin: 0 20px;
+            border-left: 1px solid #686868;
+          }
+        }
+        .introduceMyself {
+          @media (max-width: $max-width) {
+            font-size: 16px;
+          }
+          margin-top: 28px;
+          width: 360px;
+          font-family: "Noto Sans CJK KR";
+          font-size: 18px;
+          color: #818181;
+        }
+        .modifyProfile {
+          margin-top: 28px;
+          width: 120px;
+          height: 40px;
+          background-color: #9a9a9a;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          a {
+            color: white;
+            font-family: "Noto Sans CJK KR";
+            font-weight: bold;
+            @media (max-width: $max-width) {
+              font-size: 14px;
+            }
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}

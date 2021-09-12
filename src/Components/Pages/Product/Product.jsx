@@ -3,7 +3,7 @@ import './Product.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart,faLink,faUser } from '@fortawesome/free-solid-svg-icons'
 
-function MyPage(props){
+function Product(props){
     const objInfo = {
         title : '마라탕 공동구매',
         objPrice : 15000,
@@ -12,7 +12,7 @@ function MyPage(props){
         writer : '추혜연'
     }
   return(
-      <section className="myPage">
+      <section className="Product">
           <div className="GoodsInfo">
               <img src="" alt="" className="goodsImg" />
               <ul className="GoodsDetails">
@@ -27,4 +27,4 @@ function MyPage(props){
       </section>
   );
 }
-export default MyPage;
+export default Product;

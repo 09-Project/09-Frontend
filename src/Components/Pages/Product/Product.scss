@@ -1,12 +1,11 @@
 $miniScreenWidth: 1150px;
 $max-width: 1600px;
-.myPage {
+.Product {
   width: 100%;
   .GoodsInfo {
     width: $miniScreenWidth;
     margin: 0 auto;
     margin-top: 80px;
-    // border: 1px solid black;
     display: flex;
     .goodsImg {
       width: 400px;

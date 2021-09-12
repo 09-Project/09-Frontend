@@ -7,7 +7,7 @@ import { Route } from "react-router";
 import React,{useState} from 'react';
 import SignUp from "./Components/Pages/SignUpPage/SignUp";
 import Product from "./Components/Pages/Product/Product";
-import MyPage from "./Components/Pages/Product/Product";
+import MyPage from "./Components/Pages/MyPage/MyPage";
 function App() {
   const onclickModalOnOff = () => {
     if(loginModalStatus) setLoginModalStatus(false);
@@ -150,7 +150,7 @@ function App() {
         <Route path="/product" >
           <Product component={Product}/>
           </Route>
-          <Route>
+          <Route path="/myPage">
             <MyPage component={MyPage} />
           </Route>
         <Footer/>
