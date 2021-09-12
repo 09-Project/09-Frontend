@@ -1,0 +1,63 @@
+$miniScreenWidth: 1150px;
+$max-width: 1600px;
+.myPage {
+  width: 100%;
+  .GoodsInfo {
+    width: $miniScreenWidth;
+    margin: 0 auto;
+    margin-top: 80px;
+    // border: 1px solid black;
+    display: flex;
+    .goodsImg {
+      width: 400px;
+      height: 400px;
+    }
+    .GoodsDetails {
+      width: 750px;
+      display: flex;
+      flex-direction: column;
+      //   align-items: center;
+      margin-left: 40px;
+      color: #686868;
+      justify-content: center;
+      .iconInDetail {
+        margin-right: 12px;
+      }
+      .goodsTitle {
+        @media (max-width: $max-width) {
+          font-size: 20px;
+        }
+        font-size: 36px;
+        font-family: "Noto Sans CJK KR";
+        font-weight: bold;
+        margin: 0;
+      }
+      .Price {
+        display: flex;
+        p {
+          margin: 0;
+        }
+      }
+    }
+    .line {
+      margin: 40px 0 12px 0;
+      border-bottom: 1px solid #707070;
+    }
+    .heartCount {
+      display: flex;
+      p {
+        margin: 0 0 0 4px;
+      }
+    }
+    .chattingLink {
+      margin-top: 28px;
+    }
+    .wirter {
+      display: flex;
+      margin-top: 28px;
+      p {
+        margin: 0;
+      }
+    }
+  }
+}

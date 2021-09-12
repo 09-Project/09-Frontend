@@ -10,6 +10,11 @@ a {
   text-decoration: none;
   color: black;
 }
+ul,
+li {
+  padding: 0;
+  list-style: none;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

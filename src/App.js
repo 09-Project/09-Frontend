@@ -6,8 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { Route } from "react-router";
 import React,{useState} from 'react';
 import SignUp from "./Components/Pages/SignUpPage/SignUp";
-import MyPage from "./Components/Pages/MyPage/MyPage";
-
+import Product from "./Components/Pages/Product/Product";
+import MyPage from "./Components/Pages/Product/Product";
 function App() {
   const onclickModalOnOff = () => {
     if(loginModalStatus) setLoginModalStatus(false);
@@ -147,8 +147,11 @@ function App() {
         <Route exact path="/">
           <MainPage component={MainPage} RecomendGoddsArr={RecomendGoddsArr}/>
           </Route>
-        <Route path="/mypage" >
-          <MyPage component={MyPage}/>
+        <Route path="/product" >
+          <Product component={Product}/>
+          </Route>
+          <Route>
+            <MyPage component={MyPage} />
           </Route>
         <Footer/>
       </BrowserRouter>
