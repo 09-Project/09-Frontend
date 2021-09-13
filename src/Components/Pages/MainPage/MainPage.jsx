@@ -12,7 +12,7 @@ function MainPage(props){
             <section className="RecomendedGoodsBox">
               {RecomendGoddsArr.map((line)=>
                 <div className="goodsEachLine"> 
-                  <GoodsBox value={line}/>
+                  <GoodsBox value={line} mypage={false}/>
                 </div>
               )}
             </section>

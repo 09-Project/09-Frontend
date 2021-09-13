@@ -88,6 +88,28 @@ $max-width: 1600px;
       }
       .wishList {
         width: 50%;
+        .wishListButtons {
+          margin-left: 36px;
+          display: flex;
+          button {
+            width: 180px;
+            height: 60px;
+            font-weight: bold;
+            font-family: "Noto Sans CJK KR";
+            font-size: 20px;
+          }
+          .allRemove {
+            border: none;
+            background-color: #9a9a9a;
+            color: white;
+          }
+          .selectRemove {
+            margin-left: 28px;
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+          }
+        }
       }
     }
   }

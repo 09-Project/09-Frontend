@@ -4,12 +4,20 @@ import GoodsBox from '../../GoodsBox/GoodsBox';
 import WishProductBox from '../../WishProductBox/WishProductBox';
 
 function MyPage(props){
-    const {myProductArr,myWishList} = props;
+    const {myProductArr,myWishList,setMyWishList,setMyProductArr} = props;
     const writerObj ={
         name : '추혜연',
-        goodsCount : 2,
-        wishCount : 13,
+        goodsCount : myProductArr.length,
+        wishCount : myWishList.length,
         introduce : '아 배고프다 오늘 급식 뭐였지 아 배고프다 오늘 급식 뭐였지 아 배고프다 오늘 급식 뭐였지'
+    }
+    const allRemove = () => {
+        setMyWishList([])
+    }
+    const selectRemove = () => {
+        const removeArr = myWishList.filter((li)=>li.status !== true);
+        console.log(removeArr)
+        setMyWishList(removeArr)
     }
   return(
       <section className="MyPage">
@@ -36,8 +44,14 @@ function MyPage(props){
                 <li className="wishList">
                     <h3>찜한 상품 {writerObj.wishCount}</h3>
                     <div className="list">
-                        <WishProductBox value={myWishList} />
+                        <WishProductBox value={myWishList} setMyWishList={setMyWishList}/>
                     </div>
+                    {myWishList.length > 0 ? 
+                    <div className= "wishListButtons">
+                        <button className="allRemove" onClick={allRemove}>전체삭제</button>
+                        <button className="selectRemove" onClick={selectRemove}>선택삭제</button>
+                    </div> : ''
+                    }
                 </li>
             </ul>
           </div>
