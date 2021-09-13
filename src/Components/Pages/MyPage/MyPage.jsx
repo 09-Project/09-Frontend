@@ -1,7 +1,10 @@
 import React from 'react';
 import './MyPage.scss';
+import GoodsBox from '../../GoodsBox/GoodsBox';
+import WishProductBox from '../../WishProductBox/WishProductBox';
 
-function MyPage(){
+function MyPage(props){
+    const {myProductArr,myWishList} = props;
     const writerObj ={
         name : '추혜연',
         goodsCount : 2,
@@ -23,9 +26,20 @@ function MyPage(){
                     <li className="modifyProfile"><a href="">프로필 수정</a></li>
                 </ul>
             </section>
-            <section className="myProducts">
-                
-            </section>
+            <ul className="myProductlists">
+                <li className="productList">
+                    <h3>상품 {writerObj.goodsCount}</h3>
+                    <div className="list">
+                        <GoodsBox value={myProductArr} mypage={true}/>
+                    </div>
+                </li>
+                <li className="wishList">
+                    <h3>찜한 상품 {writerObj.wishCount}</h3>
+                    <div className="list">
+                        <WishProductBox value={myWishList} />
+                    </div>
+                </li>
+            </ul>
           </div>
       </section>
   );

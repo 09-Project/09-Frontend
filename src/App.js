@@ -137,7 +137,102 @@ function App() {
       }
     ]
   ]
-
+  const myProductArr = [
+    {
+      type:"공동구매",
+      title:"마라탕 공동구매1",
+      price : '10000',
+      img : '',
+      location : '여기'
+    },
+    {
+      type:"공동구매",
+      title:"마라탕 공동구매2",
+      price : '10000',
+      img : '',
+      location : '여기'
+    },
+    {
+      type:"공동구매",
+      title:"마라탕 공동구매3",
+      price : '10000',
+      img : '',
+      location : '여기'
+    },
+    {
+      type:"공동구매",
+      title:"마라탕 공동구매4",
+      price : '10000',
+      img : '',
+      location : '여기'
+    },
+    {
+      type:"공동구매",
+      title:"마라탕 공동구매5",
+      price : '10000',
+      img : '',
+      location : '여기'
+    },
+    {
+      type:"공동구매",
+      title:"마라탕 공동구매6",
+      price : '10000',
+      img : '',
+      location : '여기'
+    },
+    {
+      type:"공동구매",
+      title:"마라탕 공동구매7",
+      price : '10000',
+      img : '',
+      location : '여기'
+    },
+    {
+      type:"공동구매",
+      title:"마라탕 공동구매8",
+      price : '10000',
+      img : '',
+      location : '여기'
+    }
+  ]
+  const myWishList = [
+    {
+      img : '',
+      title : '마라탕 공동구매'
+    },
+    {
+      img : '',
+      title : '마라탕 공동구매'
+    },
+    {
+      img : '',
+      title : '마라탕 공동구매'
+    },
+    {
+      img : '',
+      title : '마라탕 공동구매'
+    },
+    {
+      img : '',
+      title : '마라탕 공동구매'
+    },
+    {
+      img : '',
+      title : '마라탕 공동구매'
+    },
+    {
+      img : '',
+      title : '마라탕 공동구매'
+    },
+    {
+      img : '',
+      title : '마라탕 공동구매'
+    },
+    {
+      img : '',
+      title : '마라탕 공동구매'
+    },
+  ]
   return (
     <div className="App">
       <BrowserRouter>
@@ -151,7 +246,7 @@ function App() {
           <Product component={Product}/>
           </Route>
           <Route path="/myPage">
-            <MyPage component={MyPage} />
+            <MyPage component={MyPage} myProductArr={myProductArr} myWishList={myWishList}/>
           </Route>
         <Footer/>
       </BrowserRouter>

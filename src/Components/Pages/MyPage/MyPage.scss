@@ -71,5 +71,24 @@ $max-width: 1600px;
         }
       }
     }
+    .myProductlists {
+      margin-top: 98px;
+      width: 100%;
+      display: flex;
+      h3 {
+        padding: 0 0 24px 36px;
+        border-bottom: 1px solid #707070;
+      }
+      .productList {
+        width: 50%;
+        .list {
+          padding-top: 35px;
+          border-right: 1px solid #707070;
+        }
+      }
+      .wishList {
+        width: 50%;
+      }
+    }
   }
 }

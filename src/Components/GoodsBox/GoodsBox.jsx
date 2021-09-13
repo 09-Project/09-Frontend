@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt,faHeart } from '@fortawesome/free-solid-svg-icons'
 
 function GoodsBox(props){
-    const {value} = props;
+    const {value,mypage} = props;
   return(
-      <div className="goodsComponent">
+      <div className={mypage ?  "myPageProduct" : "goodsComponent"}>
           {value.map((list)=>
             <div className="GoodsBoxEachBox">
                 <div className="GoodsImg">

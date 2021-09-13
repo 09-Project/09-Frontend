@@ -1,0 +1,79 @@
+.wishProductBox {
+  display: flex;
+  margin: 36px 0 0 36px;
+  flex-wrap: wrap;
+  .eachBox {
+    display: flex;
+    flex-direction: column;
+    margin: 0 36px 28px 0;
+    position: relative;
+    .WishProductImg {
+      width: 120px;
+      height: 120px;
+      background-color: #9a9a9a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        font-size: 28px;
+        color: white;
+      }
+    }
+    .checkBoxDiv {
+      &:hover input ~ .checkmark {
+        background-color: #ccc;
+      }
+      display: block;
+      position: absolute;
+      right: 24px;
+      top: 4px;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+        &:checked ~ .checkmark {
+          background-color: white;
+          &::after {
+            display: block;
+          }
+        }
+      }
+      .checkmark::after {
+        left: 5px;
+        top: 1px;
+        width: 3.5px;
+        height: 8px;
+        border: solid #9a9a9a;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+    p {
+      margin-top: 8px;
+    }
+  }
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 3px;
+  &::after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+}

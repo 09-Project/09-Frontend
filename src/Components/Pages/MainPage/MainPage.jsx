@@ -3,8 +3,7 @@ import './MainPage.scss';
 import GoodsBox from '../../GoodsBox/GoodsBox';
 
 function MainPage(props){
-  const {RecomendGoddsArr} = props;
-  console.log(RecomendGoddsArr);
+  const {RecomendGoddsArr,myWishList} = props;
   return(
       <div className="MainPage">
           <div className="AD"></div>
