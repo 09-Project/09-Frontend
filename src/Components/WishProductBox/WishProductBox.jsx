@@ -2,24 +2,22 @@ import React from 'react';
 import './WishProductBox.scss';
 
 function WishProductBox(props){
-    const {value,setMyWishList} = props;
-    const changeStatus = (e) => {
-        console.log(e.target.value);
-        const valueArr = value[e.target.value];
-        const nextObj = {
-            ...valueArr,
-            [e.target.name] : true
+    const {value,setMyWishList,} = props;
+    const changeStatus = (checked,id) => {
+        value[id].status = checked
+        if(checked){
+            setMyWishList([...value])
         }
-        console.log(nextObj)
-        setMyWishList([nextObj])
+        console.log(value,"asd");
     }
-  return(
-      <section className="wishProductBox">
+        return(
+        <section className="wishProductBox">
           {value.map((value,key)=>
             <div className="eachBox">
                 <div className="WishProductImg"><img src={value.img} alt="IMG" /></div>
-                <label htmlFor={key}  className="checkBoxDiv" onClick={changeStatus}>
-                    <input type="checkbox" name="status" value={key} id={key} />
+                {console.log(value.status,key+1)}
+                <label htmlFor={key}  className="checkBoxDiv" onChange={(e)=>{changeStatus(e.target.checked,key)}}>
+                    <input type="checkbox" name="status" value={key} id={key} checked={value.status ? true : false} />
                     <span className="checkmark" ></span>
                 </label>
                 <p>{value.title}</p>

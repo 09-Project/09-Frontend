@@ -44,7 +44,7 @@ function MyPage(props){
                 <li className="wishList">
                     <h3>찜한 상품 {writerObj.wishCount}</h3>
                     <div className="list">
-                        <WishProductBox value={myWishList} setMyWishList={setMyWishList}/>
+                        <WishProductBox value={myWishList} setMyWishList={setMyWishList} />
                     </div>
                     {myWishList.length > 0 ? 
                     <div className= "wishListButtons">

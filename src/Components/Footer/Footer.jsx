@@ -17,7 +17,7 @@ function Footer(){
     },
     {
       name : '김기영',
-      devlopType : 'ios'
+      devlopType : 'iOS'
     },
     {
       name : '추혜연',
