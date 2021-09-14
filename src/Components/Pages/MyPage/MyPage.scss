@@ -19,6 +19,7 @@ $max-width: 1600px;
     .myInfo {
       margin: 60px 0 0 37px;
       display: flex;
+      align-items: center;
       img {
         width: 240px;
         height: 240px;
@@ -83,11 +84,14 @@ $max-width: 1600px;
         width: 50%;
         .list {
           padding-top: 35px;
-          border-right: 1px solid #707070;
         }
       }
       .wishList {
         width: 50%;
+        .list {
+          padding: 36px 0 0 36px;
+          border-left: 1px solid #707070;
+        }
         .wishListButtons {
           margin-left: 36px;
           display: flex;
