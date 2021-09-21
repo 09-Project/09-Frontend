@@ -62,11 +62,16 @@ $max-width: 1600px;
     }
   }
   .productInfo,
-  .productPrice {
+  .productPrice,
+  .productLocation,
+  .productOpenChatting {
     padding: 60px 0 60px 36px;
     height: auto;
     border-bottom: 1px solid #707070;
-    .title {
+    .price,
+    .location,
+    .title,
+    .openChatting {
       height: 64px;
     }
     .introduce {
@@ -78,7 +83,8 @@ $max-width: 1600px;
       align-items: center;
       h3 {
         height: 100%;
-        width: 66px;
+        width: 67px;
+        margin-top: 40px;
         margin-right: 60px;
       }
       textarea {
@@ -92,6 +98,9 @@ $max-width: 1600px;
         font-size: 14px;
         color: #9a9a9a;
         padding: 20px 0 20px 12px;
+      }
+      .priceInput {
+        width: 375px;
       }
       p {
         height: 100%;
