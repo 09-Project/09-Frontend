@@ -1,0 +1,105 @@
+$miniScreenWidth: 1150px;
+$max-width: 1600px;
+.uploadPage {
+  width: $miniScreenWidth;
+  margin: 0 auto;
+  .introducing {
+    display: flex;
+    padding: 55px 0 55px 37px;
+    border-bottom: 2px solid #707070;
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+    }
+    p {
+      margin-left: 23px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      margin-bottom: 5px;
+      font-size: 12px;
+    }
+  }
+  .uploadImgSection {
+    display: flex;
+    padding: 60px 0 60px 37px;
+    border-bottom: 1px solid #707070;
+    .imgCount {
+      font-size: 16px;
+      padding-right: 20px;
+    }
+    .uploadImgs {
+      display: flex;
+      flex-direction: column;
+      .imgs {
+        display: flex;
+        .eachImg {
+          width: 240px;
+          height: 240px;
+          background-color: #9a9a9a;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin: 0 16px;
+          .img {
+            color: white;
+            margin-bottom: 12.5px;
+            width: 30px;
+            height: 25px;
+          }
+          p {
+            margin: 0;
+            font-weight: bold;
+            color: white;
+          }
+        }
+      }
+      p {
+        margin-top: 20px;
+        margin-left: 16px;
+      }
+    }
+  }
+  .productInfo,
+  .productPrice {
+    padding: 60px 0 60px 36px;
+    height: auto;
+    border-bottom: 1px solid #707070;
+    .title {
+      height: 64px;
+    }
+    .introduce {
+      height: 220px;
+      margin-top: 50px;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      h3 {
+        height: 100%;
+        width: 66px;
+        margin-right: 60px;
+      }
+      textarea {
+        height: 100%;
+        padding: 0;
+      }
+      input,
+      textarea {
+        box-sizing: border-box;
+        width: 800px;
+        font-size: 14px;
+        color: #9a9a9a;
+        padding: 20px 0 20px 12px;
+      }
+      p {
+        height: 100%;
+        margin-left: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+    }
+  }
+}

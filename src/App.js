@@ -8,6 +8,7 @@ import React,{useState} from 'react';
 import SignUp from "./Components/Pages/SignUpPage/SignUp";
 import Product from "./Components/Pages/Product/Product";
 import MyPage from "./Components/Pages/MyPage/MyPage";
+import Upload from "./Components/Upload/Upload";
 function App() {
   const onclickModalOnOff = () => {
     if(loginModalStatus) setLoginModalStatus(false);
@@ -243,12 +244,13 @@ function App() {
       status : false
     },
   ])
+  const [uploadType,setUploadType] = useState('');
   return (
     <div className="App">
       <BrowserRouter>
         {loginModalStatus ? <LoginModal setLoginModalStatus={setLoginModalStatus} onclickModalOnOff={onclickModalOnOff} />: ''}
         <Route path="/signup" component={SignUp}/>
-        <Header loginStatus={loginStatus} onclickModalOnOff={onclickModalOnOff}/>
+        <Header loginStatus={loginStatus} onclickModalOnOff={onclickModalOnOff} setUploadType={setUploadType}/>
         <Route exact path="/">
           <MainPage component={MainPage} RecomendGoddsArr={RecomendGoddsArr}/>
           </Route>
@@ -257,6 +259,9 @@ function App() {
           </Route>
           <Route path="/myPage">
             <MyPage component={MyPage} myProductArr={myProductArr} myWishList={myWishList} setMyProductArr={setMyProductArr} setMyWishList={setMyWishList}/>
+          </Route>
+          <Route path="/upload">
+            <Upload component={Upload} uploadType={uploadType}/>
           </Route>
         <Footer/>
       </BrowserRouter>
