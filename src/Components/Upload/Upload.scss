@@ -111,4 +111,19 @@ $max-width: 1600px;
       }
     }
   }
+  .completion {
+    display: flex;
+    justify-content: flex-end;
+    height: 64px;
+    margin-top: 60px;
+    button {
+      width: 200px;
+      height: 100%;
+      background-color: #8d8d8d;
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: bold;
+      border: none;
+    }
+  }
 }

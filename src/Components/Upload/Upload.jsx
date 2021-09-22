@@ -52,6 +52,7 @@ function Upload(props){
           <section className="productOpenChatting">
               <div className="openChatting"><h3>오픈채팅*</h3><input type="text" placeholder="오픈채팅방 링크를 입력해주세요" /></div>
           </section>
+          <div className="completion"><button>완료</button></div>
       </section>
   );
 }
