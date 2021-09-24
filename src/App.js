@@ -1,14 +1,14 @@
 import Header from "./Components/Header/Header";
-import MainPage from "./Components/Pages/MainPage/MainPage";
+import MainPage from './Pages/MainPage/MainPage'
 import Footer from "./Components/Footer/Footer";
 import LoginModal from "./Components/LoginModal/LoginModal";
 import { BrowserRouter } from 'react-router-dom';
 import { Route } from "react-router";
 import React,{useState} from 'react';
-import SignUp from "./Components/Pages/SignUpPage/SignUp";
-import Product from "./Components/Pages/Product/Product";
-import MyPage from "./Components/Pages/MyPage/MyPage";
-import Upload from "./Components/Upload/Upload";
+import SignUp from "./Pages/SignUpPage/SignUp";
+import Product from "./Pages/Product/Product";
+import MyPage from "./Pages/MyPage/MyPage";
+import Upload from './Components/Upload/Upload'
 function App() {
   const onclickModalOnOff = () => {
     if(loginModalStatus) setLoginModalStatus(false);
@@ -249,7 +249,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
         {loginModalStatus ? <LoginModal setLoginModalStatus={setLoginModalStatus} onclickModalOnOff={onclickModalOnOff} />: ''}
-        <Route path="/signup" component={SignUp}/>
+        <Route path="/signup">
+          <SignUp />
+        </Route>
         <Header loginStatus={loginStatus} onclickModalOnOff={onclickModalOnOff} setUploadType={setUploadType}/>
         <Route exact path="/">
           <MainPage component={MainPage} RecomendGoddsArr={RecomendGoddsArr}/>

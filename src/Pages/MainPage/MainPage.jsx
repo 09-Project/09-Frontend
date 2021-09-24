@@ -1,6 +1,6 @@
 import React from 'react';
 import './MainPage.scss';
-import GoodsBox from '../../GoodsBox/GoodsBox';
+import GoodsBox from '../../Components/GoodsBox/GoodsBox';
 
 function MainPage(props){
   const {RecomendGoddsArr,myWishList} = props;

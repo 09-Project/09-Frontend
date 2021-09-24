@@ -1,7 +1,7 @@
 import React from 'react';
 import './MyPage.scss';
-import GoodsBox from '../../GoodsBox/GoodsBox';
-import WishProductBox from '../../WishProductBox/WishProductBox';
+import GoodsBox from '../../Components/GoodsBox/GoodsBox';
+import WishProductBox from '../../Components/WishProductBox/WishProductBox';
 
 function MyPage(props){
     const {myProductArr,myWishList,setMyWishList,setMyProductArr} = props;
