@@ -24,7 +24,7 @@ $BigScreenWidth: 1300px;
         }
       }
     }
-    .joinUs {
+    .signUpPageTitle {
       width: 100%;
       @media (max-width: $max-width) {
         height: 100px;
@@ -34,10 +34,17 @@ $BigScreenWidth: 1300px;
       font-size: 40px;
       font-family: "Noto Sans CJK KR";
       font-weight: bold;
+      border-bottom: 1px solid #707070;
+    }
+    .joinUs {
       display: flex;
       justify-content: center;
       align-items: center;
-      border-bottom: 1px solid #707070;
+    }
+    .myPage {
+      display: flex;
+      align-items: center;
+      padding-left: 37px;
     }
     .signUpInputContainer {
       width: 100%;
