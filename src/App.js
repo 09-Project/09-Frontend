@@ -5,7 +5,11 @@ import LoginModal from "./Components/LoginModal/LoginModal";
 import { BrowserRouter } from 'react-router-dom';
 import { Route } from "react-router";
 import React,{useState} from 'react';
+<<<<<<< HEAD
 import SignUp from "./Pages/SignUpPage/SignUp";
+=======
+import SignUp from "./Components/SignUpPage/SignUp";
+>>>>>>> develop
 import Product from "./Pages/Product/Product";
 import MyPage from "./Pages/MyPage/MyPage";
 import Upload from './Components/Upload/Upload'
@@ -14,6 +18,7 @@ function App() {
     if(loginModalStatus) setLoginModalStatus(false);
     else setLoginModalStatus(true)
   }
+  const [changePassword,setChangePassword] = useState(true)
   const [loginStatus,setLoginStatus] = useState(false);
   const [loginModalStatus,setLoginModalStatus] = useState(false);
   const [RecomendGoddsArr,setRecomendGoddsArr] = useState([
@@ -250,7 +255,11 @@ function App() {
       <BrowserRouter>
         {loginModalStatus ? <LoginModal setLoginModalStatus={setLoginModalStatus} onclickModalOnOff={onclickModalOnOff} />: ''}
         <Route path="/signup">
+<<<<<<< HEAD
           <SignUp />
+=======
+          <SignUp changePassword={changePassword} />
+>>>>>>> develop
         </Route>
         <Header loginStatus={loginStatus} onclickModalOnOff={onclickModalOnOff} setUploadType={setUploadType}/>
         <Route exact path="/">
