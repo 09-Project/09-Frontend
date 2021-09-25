@@ -5,7 +5,14 @@ $BigScreenWidth: 1300px;
   z-index: 98;
   width: 100%;
   position: absolute;
+  height: 100vh;
   background-color: white;
+  display: flex;
+  align-items: center;
+  .SignUpBody {
+    display: flex;
+    align-items: center;
+  }
   .SignUpContainer {
     @media (max-width: $max-width) {
       width: $miniScreenWidth;
@@ -48,7 +55,6 @@ $BigScreenWidth: 1300px;
     }
     .signUpInputContainer {
       width: 100%;
-      height: 500px;
       .introduceInput {
         @media (max-width: $max-width) {
           padding-top: 30px;
@@ -65,14 +71,13 @@ $BigScreenWidth: 1300px;
       }
       .inputSection {
         @media (max-width: $max-width) {
-          margin-top: 40px;
+          padding: 40px 0;
         }
         width: 650px;
-        height: 250px;
+        height: 270px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        margin: 60px 0 0 37px;
         .eachInput {
           display: flex;
           height: 50px;
@@ -113,37 +118,43 @@ $BigScreenWidth: 1300px;
         }
       }
     }
-    .signUpInputSection {
-      width: 500px;
-      height: 40px;
-      margin: 40px auto 0 auto;
-      display: flex;
-      justify-content: space-between;
-      button {
-        width: 48%;
-        height: 100%;
-        outline: none;
-        @media (max-width: $max-width) {
-          font-size: 16px;
-        }
-        font-size: 20px;
-        font-family: "Noto Sans CJK KR";
+  }
+  .Submitbutton {
+    width: 500px;
+    height: 40px;
+    margin: 40px auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    button {
+      width: 48%;
+      height: 100%;
+      outline: none;
+      @media (max-width: $max-width) {
+        font-size: 16px;
       }
-      .submit {
-        border: none;
-        background-color: #737373;
-        color: #ffffff;
-      }
-      a {
-        width: 48%;
-        height: 100%;
-        .cancle {
-          width: 100%;
-          background-color: white;
-          border: 1px solid #707070;
-          color: #848484;
-        }
+      font-size: 20px;
+      font-family: "Noto Sans CJK KR";
+    }
+    .submit {
+      border: none;
+      background-color: #737373;
+      color: #ffffff;
+    }
+    a {
+      width: 48%;
+      height: 100%;
+      .cancle {
+        width: 100%;
+        background-color: white;
+        border: 1px solid #707070;
+        color: #848484;
       }
     }
   }
+}
+.banner {
+  width: 370px;
+  height: 250px;
+  margin-left: 66px;
+  background-color: #9a9a9a;
 }

@@ -46,32 +46,37 @@ function SignUp(props){
           </div>
           {changePassword ? <h1 className="myPage signUpPageTitle">마이페이지</h1> :
           <h1 className="joinUs signUpPageTitle">JOIN US</h1>}
-          <div className="signUpInputContainer">
-            <p className="introduceInput">{changePassword ? "비밀번호 입력" : "기본 정보 입력"}</p>
-            <div className="inputSection">
-              <div className="eachInput"><p>{changePassword ?"기존 비밀번호" : "닉네임"}</p><input onChange={onChangePassword} name="nickName" type="text" value={nickName} /></div>
-              {changePassword ? "" : <div className="eachInput"><p>아이디</p><input name="makepassword" onChange={onChangePassword} name="id" type="text" value={id} /></div>}
-              <div className="eachInput">
-                <p>{changePassword ? "새 비밀번호" : "비밀번호"}</p>
-                <div>
-                  <input name="makepassword" id="input" onChange={onChangePassword} type={checkShow[0] ? "text" : "password"} value={makepassword} />
-                  <label onClick={()=>checkShowHide(0)}  htmlFor="input">
-                    <FontAwesomeIcon  icon={checkShow[0] ? faEye : faEyeSlash}/></label>
+            <div className="signUpInputContainer">
+              <p className="introduceInput">{changePassword ? "비밀번호 입력" : "기본 정보 입력"}</p>
+              <div className="SignUpBody">
+              <div className="inputSection">
+                <div className="eachInput"><p>{changePassword ?"기존 비밀번호" : "닉네임"}</p><input onChange={onChangePassword} name="nickName" type="text" value={nickName} /></div>
+                {changePassword ? "" :<div className="eachInput"><p>아이디</p><input name="makepassword" onChange={onChangePassword} name="id" type="text" value={id} /></div> }
+                <div className="eachInput">
+                  <p>{changePassword ? "새 비밀번호" : "비밀번호"}</p>
+                  <div>
+                    <input name="makepassword" id="input" onChange={onChangePassword} type={checkShow[0] ? "text" : "password"} value={makepassword} />
+                    <label onClick={()=>checkShowHide(0)}  htmlFor="input">
+                      <FontAwesomeIcon  icon={checkShow[0] ? faEye : faEyeSlash}/></label>
+                  </div>
                 </div>
+                <div className="eachInput">
+                  <p>{changePassword ? "새 비밀번호 확인":"비밀번호 확인"}</p>
+                  <div><input name="verifyPassword" id="check"  onChange={onChangePassword} type={checkShow[1] ? "text" : "password"} value={verifyPassword} />
+                    <label  onClick={()=>checkShowHide(1)} htmlFor="check">
+                      <FontAwesomeIcon  icon={checkShow[1] ? faEye : faEyeSlash}/>
+                    </label></div>
+                  </div>
               </div>
-              <div className="eachInput">
-                <p>{changePassword ? "새 비밀번호 확인":"비밀번호 확인"}</p>
-                <div><input name="verifyPassword" id="check"  onChange={onChangePassword} type={checkShow[1] ? "text" : "password"} value={verifyPassword} />
-                  <label  onClick={()=>checkShowHide(1)} htmlFor="check">
-                    <FontAwesomeIcon  icon={checkShow[1] ? faEye : faEyeSlash}/>
-                  </label></div>
-                </div>
+              <section className="banner">
+
+            </section>
             </div>
-            <div className="signUpInputSection">
+          </div>
+            <div className="Submitbutton">
               <button className="submit" onClick={onClickSubmit}>확인</button>
               <Link to="/"><button className="cancle">취소</button></Link>
             </div>
-          </div>
         </div>
       </section>
   );
