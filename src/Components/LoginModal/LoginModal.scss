@@ -1,4 +1,4 @@
-$max-width: 1600px;
+@import "../../variable.scss";
 .loginModal {
   position: fixed;
   background-color: rgba(0, 0, 0, 0.35);
@@ -123,7 +123,7 @@ $max-width: 1600px;
     }
     .LoginBtn {
       color: white;
-      background-color: #737373;
+      background-color: $main-color;
     }
     a {
       display: flex;

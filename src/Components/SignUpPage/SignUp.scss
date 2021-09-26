@@ -1,6 +1,4 @@
-$max-width: 1600px;
-$miniScreenWidth: 1150px;
-$BigScreenWidth: 1300px;
+@import "../../variable.scss";
 .SignUpPage {
   z-index: 98;
   width: 100%;
@@ -138,7 +136,7 @@ $BigScreenWidth: 1300px;
     }
     .submit {
       border: none;
-      background-color: #737373;
+      background-color: $main-color;
       color: #ffffff;
     }
     a {
