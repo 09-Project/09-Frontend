@@ -2,7 +2,11 @@ $miniScreenWidth: 1150px;
 $max-width: 1600px;
 .uploadPage {
   width: $miniScreenWidth;
+<<<<<<< HEAD
   margin: 0 auto;
+=======
+  margin: 0 auto 160px auto;
+>>>>>>> develop
   .introducing {
     display: flex;
     padding: 55px 0 55px 37px;

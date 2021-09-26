@@ -2,13 +2,14 @@ import React from 'react';
 import './GoodsBox.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt,faHeart } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 function GoodsBox(props){
     const {value,mypage} = props;
   return(
       <div className={mypage  ?  "myPageProduct" : "goodsComponent"}>
           {value.map((list)=>
-            <div className="GoodsBoxEachBox">
+            <Link to="/product" className="GoodsBoxEachBox">
                 <div className="GoodsImg">
                     <img src={value.img} alt="IMG" />
                     <div className="typeOfGoods">
@@ -24,7 +25,7 @@ function GoodsBox(props){
                     <i><FontAwesomeIcon icon={faMapMarkerAlt}/></i><p>{list.location}</p>
                     <i style={{marginLeft:"auto",marginRight:"15px"}}><FontAwesomeIcon icon={faHeart}/></i>
                 </div>
-            </div>
+            </Link>
           )}
       </div>
   );
