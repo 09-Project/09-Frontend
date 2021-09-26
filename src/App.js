@@ -246,6 +246,7 @@ function App() {
     },
   ])
   const [uploadType,setUploadType] = useState('');
+  const [checked,setChecked] = useState([true,false])
   return (
     <div className="App">
       <BrowserRouter>
@@ -264,7 +265,7 @@ function App() {
             <MyPage component={MyPage} myProductArr={myProductArr} myWishList={myWishList} setMyProductArr={setMyProductArr} setMyWishList={setMyWishList}/>
           </Route>
           <Route path="/upload">
-            <Upload component={Upload} uploadType={uploadType}/>
+            <Upload component={Upload} uploadType={uploadType} checked={checked} setChecked={setChecked}/>
           </Route>
         <Footer/>
       </BrowserRouter>

@@ -2,11 +2,29 @@ $miniScreenWidth: 1150px;
 $max-width: 1600px;
 .uploadPage {
   width: $miniScreenWidth;
-<<<<<<< HEAD
-  margin: 0 auto;
-=======
   margin: 0 auto 160px auto;
->>>>>>> develop
+  .selectOption {
+    display: flex;
+    padding: 44px 0 44px 41px;
+    border-bottom: 1px solid #707070;
+    display: flex;
+    li {
+      display: flex;
+    }
+    .circle {
+      width: 20px;
+      height: 20px;
+      border: 1px solid #4a55b5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 8px;
+    }
+    .donation {
+      margin-left: 33px;
+    }
+  }
   .introducing {
     display: flex;
     padding: 55px 0 55px 37px;
@@ -123,11 +141,26 @@ $max-width: 1600px;
     button {
       width: 200px;
       height: 100%;
-      background-color: #8d8d8d;
+      background-color: #4a55b5;
       color: #ffffff;
       font-size: 24px;
       font-weight: bold;
       border: none;
     }
+  }
+}
+.checkbox-round {
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  &:checked {
+    background-color: #4a55b5;
   }
 }
