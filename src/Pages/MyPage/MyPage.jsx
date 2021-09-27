@@ -9,15 +9,8 @@ function MyPage(props){
         name : '추혜연',
         goodsCount : myProductArr.length,
         wishCount : myWishList.length,
-        introduce : '아 배고프다 오늘 급식 뭐였지 아 배고프다 오늘 급식 뭐였지 아 배고프다 오늘 급식 뭐였지'
-    }
-    const allRemove = () => {
-        setMyWishList([])
-    }
-    const selectRemove = () => {
-        const removeArr = myWishList.filter((li)=>li.status !== true);
-        console.log(removeArr)
-        setMyWishList(removeArr)
+        introduce : '아 배고프다 오늘 급식 뭐였지 아 배고프다 오늘 급식 뭐였지 아 배고프다 오늘 급식 뭐였지',
+        wirterHistory : 12
     }
   return(
       <section className="MyPage">
@@ -36,24 +29,10 @@ function MyPage(props){
             </section>
             <ul className="myProductlists">
                 <li className="productList">
-                    <h3>상품 {writerObj.goodsCount}</h3>
+                    <ul className="selectOption"><li>상품 {writerObj.goodsCount}</li><li>찜한상품 {myWishList.length}</li><li>거래내역 {writerObj.wirterHistory}</li></ul>
                     <div className="list">
                         <GoodsBox value={myProductArr} mypage={true}/>
                     </div>
-                </li>
-                <li className="wishList">
-                    <h3>찜한 상품 {writerObj.wishCount}</h3>
-                    {myWishList.length > 0 ? 
-                        <div>
-                        <div className="list">
-                            <WishProductBox value={myWishList} setMyWishList={setMyWishList} />
-                        <div className= "wishListButtons">
-                            <button className="allRemove" onClick={allRemove}>전체삭제</button>
-                            <button className="selectRemove" onClick={selectRemove}>선택삭제</button>
-                        </div>
-                        </div>
-                    </div> : ''
-                    }
                 </li>
             </ul>
           </div>
