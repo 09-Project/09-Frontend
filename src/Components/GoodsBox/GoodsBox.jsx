@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './GoodsBox.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt,faHeart } from '@fortawesome/free-solid-svg-icons'
@@ -6,13 +6,14 @@ import { Link } from 'react-router-dom';
 
 function GoodsBox(props){
     const {value,mypage} = props;
+    const [isFinish,setIsFinish] = useState(true);
   return(
       <div className={mypage  ?  "myPageProduct" : "goodsComponent"}>
           {value.map((list)=>
             <Link to="/product" className="GoodsBoxEachBox">
                 <div className="GoodsImg">
                     <img src={value.img} alt="IMG" />
-                    
+                    {isFinish ? <div className="termination">종료</div> : ''}
                 </div>
                 <div className="GoodsInfo">
                     <p className="goodsTitle">{list.title}</p>
