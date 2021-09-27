@@ -64,32 +64,11 @@
       font-family: "Noto Sans CJK KR";
       font-weight: bold;
     }
-    .typeOfGoods {
-      position: absolute;
-      width: 60px;
-      height: 20px;
-      background-color: white;
-      bottom: 17px;
-      left: 16px;
-      display: flex;
-      .typeCircle {
-        margin: 4px 2px 4px 4px;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background-color: black;
-      }
-      .typeWord {
-        font-size: 10px;
-        font-weight: bold;
-        font-family: "Noto Sans CJK KR";
-        margin: 2px 5px 3px 0;
-      }
-    }
   }
   .GoodsInfo {
     width: 100%;
     border-bottom: 1px solid #707070;
+    position: relative;
     .goodsTitle {
       @media (max-width: $max-width) {
         padding: 11px 0 0 16px;
@@ -115,6 +94,38 @@
       .won {
         font-size: 14px;
         margin-top: 11px;
+      }
+    }
+    .myPagetypeofGoods {
+      width: 39px;
+      height: 17px;
+      right: 8px;
+      bottom: 8px;
+      p {
+        font-size: 8px;
+        margin: auto;
+      }
+    }
+    .mainPagetypeOfGoods {
+      width: 56px;
+      height: 24px;
+      right: 18px;
+      bottom: 16px;
+      p {
+        font-size: 12px;
+        margin: 3px auto 4px auto;
+      }
+    }
+    .typeOfGoods {
+      position: absolute;
+      background-color: $main-color;
+      color: white;
+      border-radius: 5px;
+      display: flex;
+      .typeWord {
+        font-weight: bold;
+        font-family: "Noto Sans CJK KR";
+        display: flex;
       }
     }
   }
