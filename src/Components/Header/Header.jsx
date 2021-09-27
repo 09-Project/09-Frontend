@@ -19,7 +19,7 @@ function Header(props){
                 </div>
                 <nav className="HeaderNavBarRight">
                     <ul className="nav">
-                        <li className="upload"><i><FontAwesomeIcon className="headerIcon"  icon={faPlusSquare}/></i><p>게시물 올리기</p></li>
+                        <Link to="/upload"><li className="upload"><i><FontAwesomeIcon className="headerIcon"  icon={faPlusSquare}/></i><p>게시물 올리기</p></li></Link>
                         <li className="leftLine"><i><FontAwesomeIcon className="headerIcon" icon={faUserAlt}/></i><Link to="/mypage"><p>마이페이지</p></Link></li>
                         <li className="leftLine"><i><FontAwesomeIcon className="headerIcon" icon={faHeart}/></i><p>찜한 상품</p></li>
                     </ul>
