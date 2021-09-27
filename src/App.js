@@ -245,7 +245,6 @@ function App() {
       status : false
     },
   ])
-  const [uploadType,setUploadType] = useState('');
   return (
     <div className="App">
       <BrowserRouter>
@@ -253,7 +252,7 @@ function App() {
         <Route path="/signup">
           <SignUp changePassword={changePassword} />
         </Route>
-        <Header loginStatus={loginStatus} onclickModalOnOff={onclickModalOnOff} setUploadType={setUploadType}/>
+        <Header loginStatus={loginStatus} onclickModalOnOff={onclickModalOnOff}/>
         <Route exact path="/">
           <MainPage component={MainPage} RecomendGoddsArr={RecomendGoddsArr}/>
           </Route>
@@ -264,7 +263,7 @@ function App() {
             <MyPage component={MyPage} myProductArr={myProductArr} myWishList={myWishList} setMyProductArr={setMyProductArr} setMyWishList={setMyWishList}/>
           </Route>
           <Route path="/upload">
-            <Upload component={Upload} uploadType={uploadType}/>
+            <Upload component={Upload}/>
           </Route>
         <Footer/>
       </BrowserRouter>

@@ -3,7 +3,7 @@ import './Upload.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCamera } from '@fortawesome/free-solid-svg-icons'
 function Upload(props){
-    const {uploadType} = props;
+    const [checked,setChecked] = useState([true,false])
     const [textCount,setTextCount] = useState({
         title : 0,
         titleValue : '',
@@ -25,9 +25,19 @@ function Upload(props){
             })
         }
     }
+    const onClickCheckBox = (e) => {
+        setChecked([false,false]);
+        const nextarr = [false,false];
+        nextarr[e] = true;
+        setChecked(nextarr)
+    }
   return(
       <section className="uploadPage">
           <div className="introducing"><h1>게시물 올리기</h1><p>*은 필수항목입니다</p></div>
+          <ul className="selectPostOption">
+              <li onClick={()=>onClickCheckBox(0)}><div><input type="checkbox" name="" id="" className="checkbox-round" checked={checked[0]} /></div><label htmlFor="">공동구매</label></li>
+              <li onClick={()=>onClickCheckBox(1)}><div><input type="checkbox" name="" id="" className="checkbox-round" checked={checked[1]}/></div><label htmlFor="">기부</label></li>
+          </ul>
           <section className="uploadImgSection">
             <div className="imgCount"><p>상품 이미지</p><p>(3/4)</p></div>
             <div className="uploadImgs">
@@ -41,7 +51,7 @@ function Upload(props){
               <div className="title"><h3>글 제목*</h3><input name="title" type="text" placeholder="글 제목을 입력해주세요" onChange={onChangeTextCount} value={titleValue} /><p className="letterCount">({title}/{titleLimit})</p></div>
               <div className="introduce"><h3>글 설명</h3><textarea name="introduce" placeholder="글 설명을 입력해주세요" onChange={onChangeTextCount} value={introduceValue}/><p>({introduce}/{introduceLimit})</p></div>
           </section>
-          {uploadType === "공동구매" ? 
+          {checked[0] ? 
           <section className="productPrice">
               <div className="price"><h3>가격*</h3><input type="text" placeholder="숫자만 입력해주세요" className="priceInput" /><p>원</p></div>
           </section> : ''
