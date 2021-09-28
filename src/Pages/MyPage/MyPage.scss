@@ -81,12 +81,20 @@
         display: flex;
         li {
           padding: 0 0 24px 36px;
+          position: relative;
         }
       }
       .productList {
         width: 100%;
         .list {
           padding-top: 35px;
+        }
+        .seletingBorder {
+          border-bottom: 4px solid $main-color;
+          position: absolute;
+          width: 150px;
+          top: 46.5px;
+          left: 0;
         }
       }
     }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MyPage.scss';
 import GoodsBox from '../../Components/GoodsBox/GoodsBox';
 import WishProductBox from '../../Components/WishProductBox/WishProductBox';
@@ -12,6 +12,12 @@ function MyPage(props){
         wishCount : myWishList.length,
         introduce : '아 배고프다 오늘 급식 뭐였지 아 배고프다 오늘 급식 뭐였지 아 배고프다 오늘 급식 뭐였지',
         wirterHistory : 12
+    }
+    const [selectedTypeBox,setSelectedTypeBox] = useState([true,false,false]);
+    const changeSelectedType = (e) => {
+        const nextArr = [false,false,false];
+        nextArr[e] = true;
+        setSelectedTypeBox(nextArr);
     }
   return(
       <section className="MyPage">
@@ -30,7 +36,10 @@ function MyPage(props){
             </section>
             <ul className="myProductlists">
                 <li className="productList">
-                    <ul className="selectOption"><li>상품 {writerObj.goodsCount}</li><li>찜한상품 {myWishList.length}</li><li>거래내역 {writerObj.wirterHistory}</li></ul>
+                    <ul className="selectOption">
+                        <li onClick={()=>{changeSelectedType(0)}}>상품 {writerObj.goodsCount}{selectedTypeBox[0] ? <div className="seletingBorder"/> : ''}</li>
+                        <li onClick={()=>{changeSelectedType(1)}}>찜한상품 {myWishList.length}{selectedTypeBox[1] ? <div className="seletingBorder"/> : ''}</li>
+                        <li onClick={()=>{changeSelectedType(2)}}>거래내역 {writerObj.wirterHistory}{selectedTypeBox[2] ? <div className="seletingBorder"/> : ''}</li></ul>
                     <div className="list">
                         <GoodsBox value={myProductArr} mypage={true}/>
                     </div>
