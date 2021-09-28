@@ -13,12 +13,12 @@ function MainPage(props){
     nextArr[e] = true;
     setSelected(nextArr);
   }
-  const asd = 'asd'
+  const {isResult} = props;
   return(
       <div className="MainPage">
           <div className={isSearchResult ? "": "AD"}></div>
           <div className="RecommendedGoodsContainer">
-            <p className={"RecomendedGoods"}>{isSearchResult ? <div className="RecomendedGoods" style={{margin:'0px'}}><p style={{fontSize:'40px',color:'#4A55B5',fontWeight:'bold'}}>"{asd}"</p>&nbsp;검색결과</div>:"추천 상품"}</p>
+            <p className={"RecomendedGoods"}>{isSearchResult ? <div className="RecomendedGoods" style={{margin:'0px'}}><p style={{fontSize:'40px',color:'#4A55B5',fontWeight:'bold'}}>"{isResult}"</p>&nbsp;검색결과</div>:"추천 상품"}</p>
             <section className="RecomendedGoodsBox">
               {RecomendGoddsArr.map((line)=>
                 <div className="goodsEachLine"> 

@@ -3,6 +3,11 @@ import { useLocation } from 'react-router';
 import './SearchPage.scss';
 import MainPage from '../MainPage/MainPage';
 function SearchPage(props){
+  function useQuery(){
+    return new URLSearchParams(useLocation().search);
+  }
+  const query = useQuery();
+  const isResult =  query.get("name");
     const location = useLocation();
     const {RecomendGoddsArr} = props;
     location.pathname = 'search';
@@ -22,7 +27,7 @@ function SearchPage(props){
               </div>
           </section> : 
           <section className="searchResult">
-              <MainPage RecomendGoddsArr={RecomendGoddsArr} />
+              <MainPage RecomendGoddsArr={RecomendGoddsArr} isResult={isResult} />
           </section>
         }
       </section> 
