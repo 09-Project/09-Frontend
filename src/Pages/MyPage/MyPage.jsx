@@ -5,7 +5,7 @@ import WishProductBox from '../../Components/WishProductBox/WishProductBox';
 import { Link } from 'react-router-dom';
 
 function MyPage(props){
-    const {myProductArr,myWishList,setMyWishList,setMyProductArr} = props;
+    const {myProductArr,myWishList,setMyWishList,setMyProductArr,setSelectedTypeBox,selectedTypeBox} = props;
     const writerObj ={
         name : '추혜연',
         goodsCount : myProductArr.length,
@@ -13,7 +13,7 @@ function MyPage(props){
         introduce : '아 배고프다 오늘 급식 뭐였지 아 배고프다 오늘 급식 뭐였지 아 배고프다 오늘 급식 뭐였지',
         wirterHistory : 12
     }
-    const [selectedTypeBox,setSelectedTypeBox] = useState([true,false,false]);
+    
     const changeSelectedType = (e) => {
         const nextArr = [false,false,false];
         nextArr[e] = true;

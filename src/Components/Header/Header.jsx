@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 import { Redirect, useHistory } from 'react-router-dom';
 import {useLocation} from 'react-router';
 function Header(props){
+    const {loginStatus,onclickModalOnOff,setSelectedTypeBox} = props;
     const location = useLocation();
     const isEmpty = location.pathname.includes('search');
     const isSearchResult = location.pathname.includes('search');
     const history = useHistory();
-    const {loginStatus,onclickModalOnOff} = props;
     const onKeyPressEnter = (e) => {
         if(e.key == 'Enter' && e.target.value.length > 0) onSubmit(e.target.value);
     }
@@ -32,7 +32,7 @@ function Header(props){
                     <ul className="nav">
                         <Link to="/upload"><li className="upload"><i><FontAwesomeIcon className="headerIcon"  icon={faPlusSquare}/></i><p>게시물 올리기</p></li></Link>
                         <li className="leftLine"><i><FontAwesomeIcon className="headerIcon" icon={faUserAlt}/></i><Link to="/mypage"><p>마이페이지</p></Link></li>
-                        <li className="leftLine"><i><FontAwesomeIcon className="headerIcon" icon={faHeart}/></i><p>찜한 상품</p></li>
+                        <Link to="/mypage" onClick={()=>{setSelectedTypeBox([false,true,false])}}><li className="leftLine"><i><FontAwesomeIcon className="headerIcon" icon={faHeart}/></i><p>찜한 상품</p></li></Link>
                     </ul>
                 </nav>
             </div>

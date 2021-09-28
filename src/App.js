@@ -247,6 +247,7 @@ function App() {
       status : false
     },
   ])
+  const [selectedTypeBox,setSelectedTypeBox] = useState([true,false,false]);
   return (
     <div className="App">
       <BrowserRouter>
@@ -254,7 +255,7 @@ function App() {
         <Route path="/signup">
           <SignUp  />
         </Route>
-        <Header loginStatus={loginStatus} onclickModalOnOff={onclickModalOnOff}/>
+        <Header loginStatus={loginStatus} onclickModalOnOff={onclickModalOnOff} setSelectedTypeBox={setSelectedTypeBox}/>
         <Route exact path="/">
           <MainPage component={MainPage} RecomendGoddsArr={RecomendGoddsArr}/>
           </Route>
@@ -262,7 +263,7 @@ function App() {
           <Product component={Product}/>
           </Route>
           <Route path="/myPage">
-            <MyPage component={MyPage} myProductArr={myProductArr} myWishList={myWishList} setMyProductArr={setMyProductArr} setMyWishList={setMyWishList}/>
+            <MyPage component={MyPage} myProductArr={myProductArr} myWishList={myWishList} selectedTypeBox={selectedTypeBox} setSelectedTypeBox={setSelectedTypeBox} setMyProductArr={setMyProductArr} setMyWishList={setMyWishList}/>
           </Route>
           <Route path="/upload">
             <Upload component={Upload}/>
