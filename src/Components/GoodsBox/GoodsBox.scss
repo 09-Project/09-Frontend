@@ -1,4 +1,4 @@
-$max-width: 1600px;
+@import "../../variable.scss";
 .goodsComponent {
   display: flex;
   justify-content: space-between;
@@ -14,6 +14,20 @@ $max-width: 1600px;
     .GoodsImg {
       width: 160px;
       height: 160px;
+      position: relative;
+      .termination {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: #000000;
+        opacity: 0.5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 28px;
+        font-weight: bold;
+      }
     }
     .GoodsInfo {
       .goodsTitle {
@@ -50,6 +64,19 @@ $max-width: 1600px;
     @media (max-width: $max-width) {
       width: 220px;
       height: 220px;
+    }
+    position: relative;
+    .termination {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
     }
     width: 242px;
     height: 242px;
@@ -96,24 +123,36 @@ $max-width: 1600px;
         margin-top: 11px;
       }
     }
+    .myPagetypeofGoods {
+      width: 39px;
+      height: 17px;
+      right: 8px;
+      bottom: 8px;
+      p {
+        font-size: 8px;
+        margin: auto;
+      }
+    }
+    .mainPagetypeOfGoods {
+      width: 56px;
+      height: 24px;
+      right: 18px;
+      bottom: 16px;
+      p {
+        font-size: 12px;
+        margin: 3px auto 4px auto;
+      }
+    }
     .typeOfGoods {
       position: absolute;
-      width: 60px;
-      height: 20px;
-      background-color: #4a55b5;
-      bottom: 12px;
+      background-color: $main-color;
       color: white;
-      right: 18px;
-      display: flex;
       border-radius: 5px;
+      display: flex;
       .typeWord {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        font-size: 10px;
         font-weight: bold;
         font-family: "Noto Sans CJK KR";
-        margin: 3px 0 4px 0;
+        display: flex;
       }
     }
   }

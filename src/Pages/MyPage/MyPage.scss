@@ -1,5 +1,4 @@
-$miniScreenWidth: 1150px;
-$max-width: 1600px;
+@import "../../variable.scss";
 .MyPage {
   width: 100%;
   margin-bottom: 224px;
@@ -57,7 +56,7 @@ $max-width: 1600px;
           margin-top: 28px;
           width: 120px;
           height: 40px;
-          background-color: #9a9a9a;
+          background-color: $main-color;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -77,43 +76,17 @@ $max-width: 1600px;
       margin-top: 98px;
       width: 100%;
       display: flex;
-      h3 {
-        padding: 0 0 24px 36px;
+      .selectOption {
         border-bottom: 1px solid #707070;
+        display: flex;
+        li {
+          padding: 0 0 24px 36px;
+        }
       }
       .productList {
-        width: 50%;
+        width: 100%;
         .list {
           padding-top: 35px;
-        }
-      }
-      .wishList {
-        width: 50%;
-        .list {
-          padding: 36px 0 0 36px;
-          border-left: 1px solid #707070;
-        }
-        .wishListButtons {
-          margin-left: 36px;
-          display: flex;
-          button {
-            width: 180px;
-            height: 60px;
-            font-weight: bold;
-            font-family: "Noto Sans CJK KR";
-            font-size: 20px;
-          }
-          .allRemove {
-            border: none;
-            background-color: #9a9a9a;
-            color: white;
-          }
-          .selectRemove {
-            margin-left: 28px;
-            background-color: white;
-            color: black;
-            border: 1px solid black;
-          }
         }
       }
     }

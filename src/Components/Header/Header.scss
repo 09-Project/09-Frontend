@@ -85,14 +85,6 @@ $max-width: 1600px;
           padding: 0px;
           list-style: none;
           margin: 0;
-          .upload {
-            position: relative;
-            &:hover {
-              .selectOption {
-                display: block;
-              }
-            }
-          }
           li {
             display: flex;
             @media (max-width: $max-width) {
@@ -104,9 +96,6 @@ $max-width: 1600px;
               display: flex;
               width: 17px;
               height: 17px;
-              .headerIcon {
-                // color: white;
-              }
             }
             p {
               @media (max-width: 1440px) {

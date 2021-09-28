@@ -3,18 +3,13 @@ import './Upload.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCamera } from '@fortawesome/free-solid-svg-icons'
 function Upload(props){
-    const {checked,setChecked} = props;
+    const [checked,setChecked] = useState([true,false])
     const [textCount,setTextCount] = useState({
         title : 0,
         titleValue : '',
         introduce : 0,
         introduceValue : ''
     });
-    const onClickCheckBox = (e) => {
-        setChecked([false,false]);
-        checked[e] = true;
-        console.log(e);
-    }
     const {title,introduce,titleValue,introduceValue} = textCount;
     const limit = {
         titleLimit : 20,
@@ -30,13 +25,18 @@ function Upload(props){
             })
         }
     }
+    const onClickCheckBox = (e) => {
+        const nextarr = [false,false];
+        nextarr[e] = true;
+        setChecked(nextarr)
+    }
   return(
       <section className="uploadPage">
           {console.log(checked)}
           <div className="introducing"><h1>게시물 올리기</h1><p>*은 필수항목입니다</p></div>
-          <ul className="selectOption">
-              <li className="09" onClick={()=>onClickCheckBox(0)}><div className="circle"><input type="checkbox" name="" className="checkbox-round" id="09" checked={checked[0]} /></div><label htmlFor="09">공동구매</label></li>
-              <li className="donation" onClick={()=>onClickCheckBox(1)}><div className="circle"><input type="checkbox" className="checkbox-round" name="" id="donation" checked={checked[1]} /></div><label htmlFor="donation">기부</label></li>
+          <ul className="selectPostOption">
+              <li onClick={()=>onClickCheckBox(0)}><div><input type="checkbox" name="" id="" className="checkbox-round" checked={checked[0]} /></div><label htmlFor="">공동구매</label></li>
+              <li onClick={()=>onClickCheckBox(1)}><div><input type="checkbox" name="" id="" className="checkbox-round" checked={checked[1]}/></div><label htmlFor="">기부</label></li>
           </ul>
           <section className="uploadImgSection">
             <div className="imgCount"><p>상품 이미지</p><p>(3/4)</p></div>
