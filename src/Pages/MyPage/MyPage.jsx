@@ -2,6 +2,7 @@ import React from 'react';
 import './MyPage.scss';
 import GoodsBox from '../../Components/GoodsBox/GoodsBox';
 import WishProductBox from '../../Components/WishProductBox/WishProductBox';
+import { Link } from 'react-router-dom';
 
 function MyPage(props){
     const {myProductArr,myWishList,setMyWishList,setMyProductArr} = props;
@@ -24,7 +25,7 @@ function MyPage(props){
                         <p className="goodsCount">상품 {writerObj.goodsCount}</p><div className="line"/><p className="wishCount">찜 {writerObj.wishCount}</p>
                     </li>
                     <li className="introduceMyself">{writerObj.introduce}</li>
-                    <li className="modifyProfile"><a href="">프로필 수정</a></li>
+                    <li className="modifyProfile"><Link to="/rectify">프로필 수정</Link></li>
                 </ul>
             </section>
             <ul className="myProductlists">
