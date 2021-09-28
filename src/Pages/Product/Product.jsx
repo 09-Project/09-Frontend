@@ -22,6 +22,7 @@ function Product(props){
                     <li className="heartCount"><FontAwesomeIcon icon={faHeart} className="iconInDetail"/><p>{objInfo.hearts}</p></li>
                     <li className="chattingLink"><FontAwesomeIcon icon={faLink}  className="iconInDetail"/><a href={objInfo.link}>{objInfo.link}</a></li>
                     <li className="wirter"><FontAwesomeIcon icon={faUser}className="iconInDetail"/><p>{objInfo.writer}</p></li>
+                    <li className="removeProduct"><button>삭제</button></li>
               </ul>
           </div>
       </section>

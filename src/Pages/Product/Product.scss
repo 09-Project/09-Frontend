@@ -1,11 +1,11 @@
 @import "../../variable.scss";
 .Product {
   width: 100%;
-  margin-bottom: 120px;
+  margin-bottom: 140px;
   .GoodsInfo {
     width: $miniScreenWidth;
     margin: 0 auto;
-    margin-top: 80px;
+    margin-top: 100px;
     display: flex;
     .goodsImg {
       width: 400px;
@@ -15,24 +15,26 @@
       width: 750px;
       display: flex;
       flex-direction: column;
+      justify-content: flex-end;
       margin-left: 40px;
       color: #686868;
-      justify-content: center;
       .iconInDetail {
         margin-right: 12px;
       }
       .goodsTitle {
-        @media (max-width: $max-width) {
-          font-size: 20px;
-        }
         font-size: 36px;
-        font-family: "Noto Sans CJK KR";
         font-weight: bold;
-        margin: 0;
+        margin: 0 0 12px 0;
       }
       .Price {
         display: flex;
-        p {
+        font-size: 32px;
+        font-weight: bold;
+        .won {
+          font-weight: bold;
+          box-sizing: border-box;
+          padding-top: 14px;
+          font-size: 20px;
           margin: 0;
         }
       }
@@ -43,18 +45,36 @@
     }
     .heartCount {
       display: flex;
+      align-items: center;
       p {
         margin: 0 0 0 4px;
       }
     }
     .chattingLink {
-      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      margin-top: 35px;
     }
     .wirter {
       display: flex;
+      align-items: center;
       margin-top: 28px;
       p {
         margin: 0;
+      }
+    }
+    .removeProduct {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 5px;
+      button {
+        width: 120px;
+        height: 40px;
+        border: 2px solid $main-color;
+        color: $main-color;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: white;
       }
     }
   }
