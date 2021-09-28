@@ -9,12 +9,12 @@ import SignUp from "./Components/SignUpPage/SignUp";
 import Product from "./Pages/Product/Product";
 import MyPage from "./Pages/MyPage/MyPage";
 import Upload from './Components/Upload/Upload'
+import RectifyPage from "./Pages/RectifyPage/RectifyPage";
 function App() {
   const onclickModalOnOff = () => {
     if(loginModalStatus) setLoginModalStatus(false);
     else setLoginModalStatus(true)
   }
-  const [changePassword,setChangePassword] = useState(true)
   const [loginStatus,setLoginStatus] = useState(false);
   const [loginModalStatus,setLoginModalStatus] = useState(false);
   const [RecomendGoddsArr,setRecomendGoddsArr] = useState([
@@ -250,7 +250,7 @@ function App() {
       <BrowserRouter>
         {loginModalStatus ? <LoginModal setLoginModalStatus={setLoginModalStatus} onclickModalOnOff={onclickModalOnOff} />: ''}
         <Route path="/signup">
-          <SignUp changePassword={changePassword} />
+          <SignUp  />
         </Route>
         <Header loginStatus={loginStatus} onclickModalOnOff={onclickModalOnOff}/>
         <Route exact path="/">
@@ -264,6 +264,9 @@ function App() {
           </Route>
           <Route path="/upload">
             <Upload component={Upload}/>
+          </Route>
+          <Route path="/rectify">
+            <RectifyPage component={RectifyPage}/>
           </Route>
         <Footer/>
       </BrowserRouter>

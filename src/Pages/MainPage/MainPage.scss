@@ -1,4 +1,4 @@
-$percentWidth: 1150px;
+@import "../../variable.scss";
 .MainPage {
   width: $percentWidth;
   margin: 0 auto 120px auto;
@@ -17,7 +17,7 @@ $percentWidth: 1150px;
     }
     .RecomendedGoodsBox {
       width: 100%;
-      background-color: lightgray;
+      background-color: rgba($color: #9a9a9a, $alpha: 0.2);
       margin: 0 auto;
       @media (max-width: 1440px) {
         padding: 45px 70px 46px 70px;
@@ -46,17 +46,17 @@ $percentWidth: 1150px;
         align-items: center;
         justify-content: center;
         font-size: 16px;
-        border: 1px solid #4a55b5;
+        border: 1px solid $main-color;
       }
       .arrow {
         background-color: white;
-        color: #4a55b5;
+        color: $main-color;
       }
       .selected {
-        color: #4a55b5;
+        color: $main-color;
       }
       .isNotSelected {
-        background-color: #4a55b5;
+        background-color: $main-color;
         color: white;
       }
     }
