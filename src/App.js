@@ -10,6 +10,8 @@ import Product from "./Pages/Product/Product";
 import MyPage from "./Pages/MyPage/MyPage";
 import Upload from './Components/Upload/Upload'
 import RectifyPage from "./Pages/RectifyPage/RectifyPage";
+import SearchPage from "./Pages/SearchPage/SearchPage";
+
 function App() {
   const onclickModalOnOff = () => {
     if(loginModalStatus) setLoginModalStatus(false);
@@ -267,6 +269,9 @@ function App() {
           </Route>
           <Route path="/rectify">
             <RectifyPage component={RectifyPage}/>
+          </Route>
+          <Route path="/search">
+            <SearchPage component={SearchPage} RecomendGoddsArr={RecomendGoddsArr}/>
           </Route>
         <Footer/>
       </BrowserRouter>
