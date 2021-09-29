@@ -78,4 +78,79 @@
       }
     }
   }
+  .productInformations {
+    width: $miniScreenWidth;
+    margin: 0 auto;
+    margin-top: 80px;
+    .introduceType {
+      display: flex;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #707070;
+      .productIntroduce {
+        margin-left: 37px;
+      }
+      .wirterInfo {
+        margin-left: 694px; // 원래 787
+      }
+    }
+    .contents {
+      display: flex;
+      .introduceContent {
+        width: 707px; // 원래 800
+        height: 234px;
+        font-size: 18px;
+        color: #818181;
+        padding: 36px 22px 39px 37px;
+        border-right: 1px solid #707070;
+      }
+      .wirterInfoContents {
+        width: 383px;
+        .profile {
+          display: flex;
+          flex-direction: column;
+          padding: 36px 0 28px 38px;
+          .profileTop {
+            display: flex;
+            img {
+              width: 108px;
+              height: 108px;
+              margin-right: 22px;
+            }
+            .details {
+              div {
+                margin-top: 8px;
+                p {
+                  font-size: 14px;
+                  color: #686868;
+                }
+                display: flex;
+                .productCount {
+                  padding-right: 12px;
+                  border-right: 1px solid #686868;
+                }
+                .Wish {
+                  padding-left: 12px;
+                }
+              }
+              button {
+                width: 100px;
+                height: 40px;
+                border: none;
+                color: white;
+                font-size: 12px;
+                font-weight: bold;
+                margin-top: 16px;
+                background-color: $main-color;
+              }
+            }
+          }
+          .shortIntroduce {
+            margin-top: 28px;
+            font-size: 18px;
+            color: #818181;
+          }
+        }
+      }
+    }
+  }
 }
