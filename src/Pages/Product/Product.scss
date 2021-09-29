@@ -97,7 +97,7 @@
       display: flex;
       .introduceContent {
         width: 707px; // 원래 800
-        height: 234px;
+        // height: 234px;
         font-size: 18px;
         color: #818181;
         padding: 36px 22px 39px 37px;
@@ -149,6 +149,32 @@
             font-size: 18px;
             color: #818181;
           }
+        }
+      }
+    }
+  }
+  .RecommendOtherProduct {
+    margin: 22px auto 120px auto;
+    width: $miniScreenWidth;
+    .showOtherProduct {
+      margin-left: 34px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .ProductLists {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 16px 34px 0 34px;
+      display: flex;
+      justify-content: space-between;
+      .eachList {
+        img {
+          width: 120px;
+          height: 120px;
+        }
+        p {
+          margin-top: 8px;
+          font-size: 14px;
         }
       }
     }

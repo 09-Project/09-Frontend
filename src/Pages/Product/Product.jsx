@@ -11,6 +11,40 @@ function Product(props){
         link : 'https://open.kakao.com/o/sjPi6pR',
         writer : '추혜연'
     }
+    const arr = [
+        {
+            name : 'asd',
+            img : ''
+        },
+        {
+            name : 'sd',
+            img : ''
+        },
+        {
+            name : 'ddd',
+            img : ''
+        },
+        {
+            name : 'qwe',
+            img : ''
+        },
+        {
+            name : 'z',
+            img : ''
+        },
+        {
+            name : 'a',
+            img : ''
+        },
+        {
+            name : 's',
+            img : ''
+        },
+        {
+            name : 'd',
+            img : ''
+        },
+    ]
   return(
       <section className="Product">
           <div className="GoodsInfo">
@@ -55,6 +89,17 @@ function Product(props){
                         </p>
                     </div>
                 </section>
+                </div>
+            </section>
+            <section className="RecommendOtherProduct">
+                <p className="showOtherProduct">다른 상품 보기</p>
+                <div className="ProductLists">
+                    {arr.map((li)=>
+                        <div className="eachList">
+                            <img src={li.img} alt="" />
+                            <p>{li.name}</p>
+                        </div>
+                    )}
                 </div>
             </section>
       </section>
