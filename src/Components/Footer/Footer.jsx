@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.scss';
-import Symbol from '../../assets/Symbol.png'
+import Symbol from '../../assets/symbol_black.png';
 function Footer(){
   const memberArr = [
     {
