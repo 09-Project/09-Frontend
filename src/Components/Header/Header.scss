@@ -19,15 +19,17 @@ $max-width: 1600px;
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        p {
+        div {
           @media (max-width: 1440px) {
             font-size: 14px;
             margin-right: 100px;
           }
           margin-right: 52px;
           font-size: 18px;
-          &:hover {
-            color: blue;
+          P {
+            &:hover {
+              color: blue;
+            }
           }
         }
       }

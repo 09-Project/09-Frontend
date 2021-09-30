@@ -20,7 +20,7 @@ function Header(props){
   return(
       <section className="HeaderSection">
         <div className="HeaderDiv">
-            <div className="HeaderTop"><div className="loginStatus">{loginStatus ? <p>로그아웃</p> : <p onClick={onclickModalOnOff}>로그인 / 회원가입</p>}</div></div>
+            <div className="HeaderTop"><div className="loginStatus">{loginStatus ? <p>로그아웃</p> : <div style={{display:'flex'}}><p onClick={onclickModalOnOff}>로그인</p> / <Link to="/signup"><p>회원가입</p></Link></div>}</div></div>
             <div className="HeaderNavBar" style={isEmpty ? {border:'none'} : {}}>
                 <div className="HeaderNavBarLeft">
                     <Link to="/" className="Logo09"><i ><img src="" alt="Logo" /></i></Link>
