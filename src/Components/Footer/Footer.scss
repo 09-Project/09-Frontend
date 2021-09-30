@@ -34,8 +34,25 @@
       }
     }
   }
-  .outInfo {
+  .oraginationInfo {
     width: 100%;
-    height: 118px;
+    padding: 34px 0 32px 0;
+    .contents {
+      width: 749px;
+      height: 50px;
+      margin: 0 auto 0 auto;
+      display: flex;
+      .site09 {
+        font-family: "Noto Sans CJK KR";
+        font-size: 36px;
+      }
+      .project09 {
+        margin-top: 25px;
+        margin-left: 37px;
+      }
+      img {
+        margin-left: auto;
+      }
+    }
   }
 }

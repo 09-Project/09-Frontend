@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.scss';
-
+import Symbol from '../../assets/Symbol.png'
 function Footer(){
   const memberArr = [
     {
@@ -36,7 +36,13 @@ function Footer(){
               )}
               </div>
           </div>
-          <div className="outInfo"></div>
+          <section className="oraginationInfo">
+              <div className="contents">
+                <p className="site09">공동구매 사이트</p>
+                <p className="project09">2021 Project 09</p>
+                <img src={Symbol} alt="" />
+              </div>
+          </section>
       </section>
   );
 }
