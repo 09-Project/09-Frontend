@@ -5,6 +5,8 @@ import { faSearch,faPlusSquare,faUserAlt,faHeart } from '@fortawesome/free-solid
 import { Link } from 'react-router-dom';
 import { Redirect, useHistory } from 'react-router-dom';
 import {useLocation} from 'react-router';
+import logo from '../../assets/logo_09.png';
+import symbol from '../../assets/Symbol.png';
 function Header(props){
     const {loginStatus,onclickModalOnOff,setSelectedTypeBox} = props;
     const location = useLocation();
@@ -23,7 +25,7 @@ function Header(props){
             <div className="HeaderTop"><div className="loginStatus">{loginStatus ? <p>로그아웃</p> : <div style={{display:'flex'}}><p onClick={onclickModalOnOff}>로그인</p> / <Link to="/signup"><p>회원가입</p></Link></div>}</div></div>
             <div className="HeaderNavBar" style={isEmpty ? {border:'none'} : {}}>
                 <div className="HeaderNavBarLeft">
-                    <Link to="/" className="Logo09"><i ><img src="" alt="Logo" /></i></Link>
+                    <Link to="/" className="Logo09"><i><img className="symbol" src={symbol} alt="" /><img className="logo" src={logo} alt="Logo" /></i></Link>
                     <div className="HeaderInputDiv">
                         <input onKeyPress={onKeyPressEnter} id="searchInput" type="text" placeholder="상품명을 입력하세요" /><label htmlFor="searchInput" ><FontAwesomeIcon className="searchIcon" icon={faSearch}/></label>
                     </div>
