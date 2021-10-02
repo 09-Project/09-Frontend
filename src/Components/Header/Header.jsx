@@ -5,8 +5,8 @@ import { faSearch,faPlusSquare,faUserAlt,faHeart } from '@fortawesome/free-solid
 import { Link } from 'react-router-dom';
 import { Redirect, useHistory } from 'react-router-dom';
 import {useLocation} from 'react-router';
-import logo from '../../assets/logo_09.png';
-import symbol from '../../assets/Symbol.png';
+import logo from '../../assets/images/logo_09.png'
+import symbol from '../../assets/images/Symbol.png';
 function Header(props){
     const {loginStatus,onclickModalOnOff,setSelectedTypeBox} = props;
     const location = useLocation();
