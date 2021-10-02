@@ -41,7 +41,9 @@ function MyPage(props){
                         <li onClick={()=>{changeSelectedType(1)}}>찜한상품 {myWishList.length}{selectedTypeBox[1] ? <div className="seletingBorder"/> : ''}</li>
                         <li onClick={()=>{changeSelectedType(2)}}>거래내역 {writerObj.wirterHistory}{selectedTypeBox[2] ? <div className="seletingBorder"/> : ''}</li></ul>
                     <div className="list">
-                        <GoodsBox value={myProductArr} mypage={true}/>
+                        {myProductArr.map((list)=> 
+                        <GoodsBox value={list} mypage={true}/>
+                        )}
                     </div>
                 </li>
             </ul>

@@ -20,12 +20,13 @@
       background-color: rgba($color: #9a9a9a, $alpha: 0.2);
       margin: 0 auto;
       @media (max-width: 1440px) {
-        padding: 45px 70px 46px 70px;
+        padding: 45px 27px 6px 70px;
       }
       padding: 45px 81px 46px 81px;
       box-sizing: border-box;
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      // flex-direction: column;
       .goodsEachLine {
         margin: 20px 0;
         width: 100%;

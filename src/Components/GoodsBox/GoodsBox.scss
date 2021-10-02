@@ -2,14 +2,14 @@
 .goodsComponent {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  // width: 100%;
+  padding: 0 43px 40px 0;
 }
 .myPageProduct {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 26px;
+  margin: 0 31px 40px 0;
   .GoodsBoxEachBox {
-    margin: 0 10px 16px 10px;
     width: 160px; //기존값 171px
     .GoodsImg {
       width: 160px;

@@ -21,9 +21,7 @@ function MainPage(props){
             <p className={"RecomendedGoods"}>{isSearchResult ? <div className="RecomendedGoods" style={{margin:'0px'}}><p style={{fontSize:'40px',color:'#4A55B5',fontWeight:'bold'}}>"{isResult}"</p>&nbsp;검색결과</div>:"추천 상품"}</p>
             <section className="RecomendedGoodsBox">
               {RecomendGoddsArr.map((line)=>
-                <div className="goodsEachLine"> 
                   <GoodsBox value={line} mypage={false}/>
-                </div>
               )}
             </section>
           </div>

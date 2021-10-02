@@ -20,7 +20,6 @@ function App() {
   const [loginStatus,setLoginStatus] = useState(false);
   const [loginModalStatus,setLoginModalStatus] = useState(false);
   const [RecomendGoddsArr,setRecomendGoddsArr] = useState([
-    [
       {
         type:"공동구매",
         title:"마라탕 공동구매1",
@@ -48,9 +47,7 @@ function App() {
         price : '10000',
         img : '',
         location : '여기'
-      }
-    ],
-    [
+      },
       {
         type:"공동구매",
         title:"마라탕 공동구매5",
@@ -78,9 +75,7 @@ function App() {
         price : '10000',
         img : '',
         location : '여기'
-      }
-    ],
-    [
+      },
       {
         type:"공동구매",
         title:"마라탕 공동구매9",
@@ -108,9 +103,7 @@ function App() {
         price : '10000',
         img : '',
         location : '여기'
-      }
-    ],
-    [
+      },
       {
         type:"공동구매",
         title:"마라탕 공동구매13",
@@ -139,7 +132,7 @@ function App() {
         img : '',
         location : '여기'
       }
-  ]])
+  ])
 
 
   const [myProductArr,setMyProductArr] = useState([
