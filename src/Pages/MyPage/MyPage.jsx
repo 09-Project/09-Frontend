@@ -28,7 +28,7 @@ function MyPage(props){
                 <ul className="myIntoduce">
                     <li className="wirterName">{writerObj.name}</li>
                     <li className="wirterActivity">
-                        <p className="goodsCount">상품 {writerObj.goodsCount}</p><div className="line"/><p className="wishCount">찜 {writerObj.wishCount}</p>
+                        <p className="goodsCount">상품 {writerObj.goodsCount}</p><div className="line"></div><p className="wishCount">찜 {writerObj.wishCount}</p>
                     </li>
                     <li className="introduceMyself">{writerObj.introduce}</li>
                     <li className="modifyProfile"><Link to="/rectify">프로필 수정</Link></li>

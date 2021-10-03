@@ -11,7 +11,6 @@ function Header(props){
     const {loginStatus,onclickModalOnOff,setSelectedTypeBox} = props;
     const location = useLocation();
     const isEmpty = location.pathname.includes('search');
-    const isSearchResult = location.pathname.includes('search');
     const history = useHistory();
     const onKeyPressEnter = (e) => {
         if(e.key == 'Enter' && e.target.value.length > 0) onSubmit(e.target.value);
