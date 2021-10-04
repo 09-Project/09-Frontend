@@ -4,6 +4,9 @@
   justify-content: space-between;
   // width: 100%;
   padding: 0 43px 40px 0;
+  @media (min-width: $max-width) {
+    padding: 0 36px 40px 0;
+  }
 }
 .myPageProduct {
   display: flex;
@@ -31,22 +34,24 @@
     .GoodsInfo {
       .goodsTitle {
         font-size: 14px;
-        padding: 8px 0 0 13px;
+        padding: 6px 0 0 13px;
       }
       .goodsPrice {
-        padding: 0 0 4px 13px;
+        padding: 0 0 2px 13px;
         p {
-          font-size: 20px;
+          font-weight: bold;
+          font-size: 18px;
         }
         .won {
-          margin-top: 6px;
+          margin-top: 5px;
         }
       }
     }
     .GoodsLocation {
       font-size: 14px;
+      padding: 0;
       i {
-        font-size: 12px;
+        font-size: 10px;
       }
     }
   }
@@ -55,7 +60,7 @@
   @media (max-width: $max-width) {
     width: 220px;
   }
-  width: 242px;
+  width: 220px;
   border: 1px solid black;
   box-sizing: border-box;
   background-color: white;
@@ -77,8 +82,8 @@
       font-size: 28px;
       font-weight: bold;
     }
-    width: 242px;
-    height: 242px;
+    width: 220px;
+    height: 220px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,15 +115,15 @@
       margin: 0;
       display: flex;
       font-family: "Noto Sans CJK KR";
-      font-weight: bold;
       padding-bottom: 12px;
       p {
+        font-weight: bold;
         margin: 0;
         font-size: 24px;
         margin-right: 4px;
       }
       .won {
-        font-size: 14px;
+        font-size: 16px;
         margin-top: 11px;
       }
     }
