@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './MainPage.scss';
 import GoodsBox from '../../Components/GoodsBox/GoodsBox';
 import { useLocation } from 'react-router';
@@ -12,6 +12,19 @@ function MainPage(props){
     const nextArr = [false,false,false,false,false];
     nextArr[e] = true;
     setSelected(nextArr);
+  }
+
+  const [btnNum,setBtnNum] = useState([1,2,3,4,5]);
+  const onClickPrevBtns = () => {
+    if(btnNum[0] > 1){
+      const nextArr = [btnNum[0]-1,btnNum[1]-1,btnNum[2]-1,btnNum[3]-1,btnNum[4]-1];
+      setBtnNum(nextArr);
+    }
+  }
+  
+  const onClickNextBtns = () => {
+    const nextArr = [btnNum[0]+1,btnNum[1]+1,btnNum[2]+1,btnNum[3]+1,btnNum[4]+1];
+    setBtnNum(nextArr);
   }
   const {isResult} = props;
   return(
@@ -30,13 +43,13 @@ function MainPage(props){
           </div>
           <section className="changeRecommendedPageSection">
                 <ul className="changeBtns">
-                  <li className="eachBtn arrow">{"<"}</li>
-                  <li onClick={()=>onClickSelectBtn(0)} className={ selected[0] ? "selected eachBtn" : "eachBtn isNotSelected"}>1</li>
-                  <li onClick={()=>onClickSelectBtn(1)} className={ selected[1] ? "selected eachBtn" : "eachBtn isNotSelected"}>2</li>
-                  <li onClick={()=>onClickSelectBtn(2)} className={ selected[2] ? "selected eachBtn" : "eachBtn isNotSelected"}>3</li>
-                  <li onClick={()=>onClickSelectBtn(3)} className={ selected[3] ? "selected eachBtn" : "eachBtn isNotSelected"}>4</li>
-                  <li onClick={()=>onClickSelectBtn(4)} className={ selected[4] ? "selected eachBtn" : "eachBtn isNotSelected"}>5</li>
-                  <li className="eachBtn arrow">{">"}</li>
+                  <li onClick={onClickPrevBtns} className="eachBtn arrow">{"<"}</li>
+                  <li onClick={()=>onClickSelectBtn(0)} className={ selected[0] ? "selected eachBtn" : "eachBtn isNotSelected"}>{btnNum[0]}</li>
+                  <li onClick={()=>onClickSelectBtn(1)} className={ selected[1] ? "selected eachBtn" : "eachBtn isNotSelected"}>{btnNum[1]}</li>
+                  <li onClick={()=>onClickSelectBtn(2)} className={ selected[2] ? "selected eachBtn" : "eachBtn isNotSelected"}>{btnNum[2]}</li>
+                  <li onClick={()=>onClickSelectBtn(3)} className={ selected[3] ? "selected eachBtn" : "eachBtn isNotSelected"}>{btnNum[3]}</li>
+                  <li onClick={()=>onClickSelectBtn(4)} className={ selected[4] ? "selected eachBtn" : "eachBtn isNotSelected"}>{btnNum[4]}</li>
+                  <li onClick={onClickNextBtns} className="eachBtn arrow">{">"}</li>
                 </ul>
           </section>
       </div>
