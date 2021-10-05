@@ -4,6 +4,8 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye,faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { Link,useLocation } from 'react-router-dom';
+import Logo from '../../assets/images/logo_09.png'
+import Symbol from '../../assets/images/Symbol.png';
 function SignUp(props){
   function useQuery(){
     return new URLSearchParams(useLocation().search);
@@ -45,7 +47,7 @@ function SignUp(props){
         <div className="SignUpContainer">
           <div className="empty"></div>
           <div className="logoInSignup">
-            <i><img src="" alt="" /></i>
+            <Link to="/"><i><img className="symbol" src={Symbol} alt="" /><img className="logo" src={Logo} alt="" /></i></Link>
           </div>
           {isRectify ? <h1 className="myPage signUpPageTitle">마이페이지</h1> :
           <h1 className="joinUs signUpPageTitle">JOIN US</h1>}
