@@ -19,14 +19,10 @@
       width: 100%;
       background-color: rgba($color: #9a9a9a, $alpha: 0.2);
       margin: 0 auto;
-      @media (max-width: 1440px) {
-        padding: 45px 27px 6px 70px;
-      }
-      padding: 45px 45px 46px 81px;
+      padding: 45px 27px 6px 70px;
       box-sizing: border-box;
       display: flex;
       flex-wrap: wrap;
-      // flex-direction: column;
     }
   }
   .changeRecommendedPageSection {

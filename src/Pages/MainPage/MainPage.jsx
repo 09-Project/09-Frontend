@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './MainPage.scss';
 import GoodsBox from '../../Components/GoodsBox/GoodsBox';
 import { useLocation } from 'react-router';
-
+import Banner from '../../assets/images/banner_09.jpg'
 function MainPage(props){
   const location = useLocation();
   const isSearchResult = location.pathname.includes('search');
@@ -16,7 +16,10 @@ function MainPage(props){
   const {isResult} = props;
   return(
       <div className="MainPage">
-          <div className={isSearchResult ? "": "AD"}></div>
+          {isSearchResult ? 
+          <div className=""></div> : 
+          <img className="AD" src={Banner}/>
+          }
           <div className="RecommendedGoodsContainer">
             <p className={"RecomendedGoods"}>{isSearchResult ? <div className="RecomendedGoods" style={{margin:'0px'}}><p style={{fontSize:'40px',color:'#4A55B5',fontWeight:'bold'}}>"{isResult}"</p>&nbsp;검색결과</div>:"추천 상품"}</p>
             <section className="RecomendedGoodsBox">
