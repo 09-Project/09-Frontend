@@ -1,8 +1,8 @@
 @import "../../variable.scss";
 .goodsComponent {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  // width: 100%;
   padding: 0 43px 40px 0;
   @media (min-width: $max-width) {
     padding: 0 36px 40px 0;
@@ -10,8 +10,10 @@
 }
 .myPageProduct {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   margin: 0 31px 40px 0;
+  border: 1px solid #707070;
   .GoodsBoxEachBox {
     width: 160px; //기존값 171px
     .GoodsImg {
@@ -57,11 +59,9 @@
   }
 }
 .GoodsBoxEachBox {
-  @media (max-width: $max-width) {
-    width: 220px;
-  }
+  display: flex;
+  flex-direction: column;
   width: 220px;
-  border: 1px solid black;
   box-sizing: border-box;
   background-color: white;
   .GoodsImg {
@@ -160,18 +160,19 @@
       }
     }
   }
-  .GoodsLocation {
+}
+.GoodsLocation {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  background-color: white;
+  i {
+    font-size: 16px;
+    margin: 0 0 0 10px;
     display: flex;
     align-items: center;
-    padding: 5px 0;
-    i {
-      font-size: 16px;
-      margin: 0 0 0 10px;
-      display: flex;
-      align-items: center;
-    }
-    p {
-      margin: 0 0 0 8px;
-    }
+  }
+  p {
+    margin: 0 0 0 8px;
   }
 }

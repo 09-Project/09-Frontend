@@ -21,11 +21,11 @@ function GoodsBox(props){
                         <p className="typeWord">{value.type}</p>
                     </div>
                 </div>
+            </Link>
                 <div className="GoodsLocation">
                     <i><FontAwesomeIcon icon={faMapMarkerAlt}/></i><p>{value.location}</p>
                     <i style={{marginLeft:"auto",marginRight:"15px"}}><FontAwesomeIcon icon={faHeart}/></i>
                 </div>
-            </Link>
       </div>
   );
 }
