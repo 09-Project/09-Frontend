@@ -5,7 +5,7 @@ import './LoginModal.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes,faEye,faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import OutsideClickHandler from 'react-outside-click-handler';
-
+import Symbol from '../../assets/images/Symbol.png';
 function LoginModal(props){
   const {onclickModalOnOff,setLoginModalStatus} = props;
   const [eye,setEye] = useState(false);
@@ -20,7 +20,7 @@ function LoginModal(props){
       }}>
       <div className="modalContents">
         <div onClick={onclickModalOnOff} className="closeImg" ><FontAwesomeIcon icon={faTimes}/></div>
-        <i><img src="" alt="" /></i>
+        <i><img src={Symbol} alt="" /></i>
         <p className="modalTitle">공동구매부터 무료나눔까지</p>
         <p className="Login">LOG IN</p>
         <input type="text" className="input inputBorder" placeholder="ID" />
