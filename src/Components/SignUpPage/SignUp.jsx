@@ -33,7 +33,13 @@ function SignUp(props){
   const onClickSubmit = useCallback(() => {
     if(makepassword === verifyPassword){
       if(isRectify) console.log("Asd") // 비번 변경
-      else console.log('asd') // 회원가입
+      else {
+        axios.post('http://3.36.26.221:8080/member/auth/signup',{
+          "name" : nickName,
+          "username" : id,
+          "password" : makepassword
+        })
+      }
     }
   },[password,checkShow])
 
@@ -79,7 +85,7 @@ function SignUp(props){
             </div>
           </div>
             <div className="Submitbutton">
-              <button className="submit" onClick={onClickSubmit}>확인</button>
+              <button className="submit" onClick={isRectify ? '':onClickSubmit}>확인</button>
               <Link to="/"><button className="cancle">취소</button></Link>
             </div>
         </div>
