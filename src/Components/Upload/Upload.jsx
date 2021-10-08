@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Upload.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCamera } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios';
 function Upload(props){
     const [checked,setChecked] = useState([true,false])
     const [textCount,setTextCount] = useState({
@@ -30,9 +31,31 @@ function Upload(props){
         nextarr[e] = true;
         setChecked(nextarr)
     }
+    const [textContent,setTextContent] = useState({
+        price : 0,
+        location : '',
+        openChatting : ''
+    })
+    const {price,location,openChatting} = textContent;
+    const onChangeTextContent = (e) => {
+        const nextObj = {
+            ...textContent,
+            [e.target.name] : e.target.value
+        }
+        setTextContent(nextObj);
+    }
+    const onClickSubmit = () => {
+        axios.post('http://3.36.26.221:8080/post',{
+            "title" : title,
+            "content" : introduce,
+            "price" : price,
+            "transactionRegion" : location,
+            "openChatLink" : openChatting,
+            "image" : 'ㅁㄴㅇ'
+        })
+    }
   return(
       <section className="uploadPage">
-          {console.log(checked)}
           <div className="introducing"><h1>게시물 올리기</h1><p>*은 필수항목입니다</p></div>
           <ul className="selectPostOption">
               <li onClick={()=>onClickCheckBox(0)}><div><input type="checkbox" name="" id="" className="checkbox-round" checked={checked[0]} /></div><label htmlFor="">공동구매</label></li>
@@ -53,16 +76,16 @@ function Upload(props){
           </section>
           {checked[0] ? 
           <section className="productPrice">
-              <div className="price"><h3>가격*</h3><input type="text" placeholder="숫자만 입력해주세요" className="priceInput" /><p>원</p></div>
+              <div className="price"><h3>가격*</h3><input name="price" onChange={onChangeTextContent} type="text" placeholder="숫자만 입력해주세요" className="priceInput" /><p>원</p></div>
           </section> : ''
             }
           <section className="productLocation">
-              <div className="location"><h3>거래지역*</h3><input type="text" placeholder="거래지역을 입력해주세요(ex.대덕소프트웨어마이스터고)" /></div>
+              <div className="location"><h3>거래지역*</h3><input name="location" onChange={onChangeTextContent} type="text" placeholder="거래지역을 입력해주세요(ex.대덕소프트웨어마이스터고)" /></div>
           </section>
           <section className="productOpenChatting">
-              <div className="openChatting"><h3>오픈채팅*</h3><input type="text" placeholder="오픈채팅방 링크를 입력해주세요" /></div>
+              <div className="openChatting"><h3>오픈채팅*</h3><input name="openChatting" onChange={onChangeTextContent} type="text" placeholder="오픈채팅방 링크를 입력해주세요" /></div>
           </section>
-          <div className="completion"><button>완료</button></div>
+          <div className="completion"><button onClick={onClickSubmit}>완료</button></div>
       </section>
   );
 }
