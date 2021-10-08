@@ -31,7 +31,7 @@ function LoginModal(props){
       "username" : username,
       "password" : password
     })
-    .then(function(respone){
+    .then(function(){
       setLoginStatus(true);
       setLoginModalStatus(false)
     })
