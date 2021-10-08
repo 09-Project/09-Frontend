@@ -244,7 +244,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {loginModalStatus ? <LoginModal setLoginModalStatus={setLoginModalStatus} onclickModalOnOff={onclickModalOnOff} />: ''}
+        {loginModalStatus ? <LoginModal setLoginModalStatus={setLoginModalStatus} onclickModalOnOff={onclickModalOnOff} setLoginStatus={setLoginStatus} />: ''}
         <Route path="/signup">
           <SignUp  />
         </Route>
