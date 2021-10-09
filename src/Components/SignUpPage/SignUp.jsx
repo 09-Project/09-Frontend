@@ -6,6 +6,7 @@ import { faEye,faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { Link,useLocation } from 'react-router-dom';
 import Logo from '../../assets/images/logo_09.png'
 import Symbol from '../../assets/images/Symbol.png';
+import { API_HOST } from '../../constant/api';
 function SignUp(props){
   function useQuery(){
     return new URLSearchParams(useLocation().search);
@@ -34,7 +35,7 @@ function SignUp(props){
     if(makepassword === verifyPassword){
       if(isRectify) console.log("Asd") // 비번 변경
       else {
-        axios.post('http://3.36.26.221:8080/member/auth/signup',{
+        axios.post(API_HOST+'/member/auth/signup',{
           "name" : nickName,
           "username" : id,
           "password" : makepassword

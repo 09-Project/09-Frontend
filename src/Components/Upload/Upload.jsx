@@ -3,6 +3,7 @@ import './Upload.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCamera } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
+import { API_HOST } from '../../constant/api';
 function Upload(props){
     const [checked,setChecked] = useState([true,false])
     const [textCount,setTextCount] = useState({
@@ -45,7 +46,7 @@ function Upload(props){
         setTextContent(nextObj);
     }
     const onClickSubmit = () => {
-        axios.post('http://3.36.26.221:8080/post',{
+        axios.post(API_HOST+'/post',{
             "title" : title,
             "content" : introduce,
             "price" : price,
