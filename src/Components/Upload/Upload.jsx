@@ -53,14 +53,17 @@ function Upload(props){
             "openChatLink" : openChatting,
             "image" : 'ㅁㄴㅇ'
         })
+        .then(function(response){
+            console.log(response);
+        })
     }
   return(
       <section className="uploadPage">
           <div className="introducing"><h1>게시물 올리기</h1><p>*은 필수항목입니다</p></div>
-          <ul className="selectPostOption">
-              <li onClick={()=>onClickCheckBox(0)}><div><input type="checkbox" name="" id="" className="checkbox-round" checked={checked[0]} /></div><label htmlFor="">공동구매</label></li>
-              <li onClick={()=>onClickCheckBox(1)}><div><input type="checkbox" name="" id="" className="checkbox-round" checked={checked[1]}/></div><label htmlFor="">기부</label></li>
-          </ul>
+          <section className="selectPostOption">
+            <label><div><input type="radio" name="typeCheckbox" className="checkbox-round" checked="checked"  /></div>공동구매</label>
+            <label><div><input type="radio" name="typeCheckbox" className="checkbox-round" /></div>기부</label>
+          </section>
           <section className="uploadImgSection">
             <div className="imgCount"><p>상품 이미지</p><p>(3/4)</p></div>
             <div className="uploadImgs">
