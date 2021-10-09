@@ -11,6 +11,8 @@ import MyPage from "./Pages/MyPage/MyPage";
 import Upload from './Components/Upload/Upload'
 import RectifyPage from "./Pages/RectifyPage/RectifyPage";
 import SearchPage from "./Pages/SearchPage/SearchPage";
+import axios from "axios";
+import {API_HOST} from './constant/api'
 
 function App() {
   const onclickModalOnOff = () => {
@@ -19,122 +21,9 @@ function App() {
   }
   const [loginStatus,setLoginStatus] = useState(false);
   const [loginModalStatus,setLoginModalStatus] = useState(false);
-  const [RecomendGoddsArr,setRecomendGoddsArr] = useState([
-      {
-        type:"공동구매",
-        title:"마라탕 공동구매1",
-        price : '10000',
-        img : '',
-        location : '여기'
-      },
-      {
-        type:"공동구매",
-        title:"마라탕 공동구매2",
-        price : '10000',
-        img : '',
-        location : '여기'
-      },
-      {
-        type:"공동구매",
-        title:"마라탕 공동구매3",
-        price : '10000',
-        img : '',
-        location : '여기'
-      },
-      {
-        type:"공동구매",
-        title:"마라탕 공동구매4",
-        price : '10000',
-        img : '',
-        location : '여기'
-      },
-      {
-        type:"공동구매",
-        title:"마라탕 공동구매5",
-        price : '10000',
-        img : '',
-        location : '여기'
-      },
-      {
-        type:"공동구매",
-        title:"마라탕 공동구매6",
-        price : '10000',
-        img : '',
-        location : '여기'
-      },
-      {
-        type:"공동구매",
-        title:"마라탕 공동구매7",
-        price : '10000',
-        img : '',
-        location : '여기'
-      },
-      {
-        type:"공동구매",
-        title:"마라탕 공동구매8",
-        price : '10000',
-        img : '',
-        location : '여기'
-      },
-      {
-        type:"공동구매",
-        title:"마라탕 공동구매9",
-        price : '10000',
-        img : '',
-        location : '여기'
-      },
-      {
-        type:"공동구매",
-        title:"마라탕 공동구매10",
-        price : '10000',
-        img : '',
-        location : '여기'
-      },
-      {
-        type:"공동구매",
-        title:"마라탕 공동구매11",
-        price : '10000',
-        img : '',
-        location : '여기'
-      },
-      {
-        type:"공동구매",
-        title:"마라탕 공동구매12",
-        price : '10000',
-        img : '',
-        location : '여기'
-      },
-      {
-        type:"공동구매",
-        title:"마라탕 공동구매13",
-        price : '10000',
-        img : '',
-        location : '여기'
-      },
-      {
-        type:"공동구매",
-        title:"마라탕 공동구매14",
-        price : '10000',
-        img : '',
-        location : '여기'
-      },
-      {
-        type:"공동구매",
-        title:"마라탕 공동구매15",
-        price : '10000',
-        img : '',
-        location : '여기'
-      },
-      {
-        type:"공동구매",
-        title:"마라탕 공동구매16",
-        price : '10000',
-        img : '',
-        location : '여기'
-      }
-  ])
-
-
+  // axios.get(API_HOST+'/post').then(res=>console.log(res.data));
+  axios.get(API_HOST+'/post').then(res=>setRecomendGoddsArr(res.data))
+  const [RecomendGoddsArr,setRecomendGoddsArr] = useState([])
   const [myProductArr,setMyProductArr] = useState([
     {
       type:"공동구매",

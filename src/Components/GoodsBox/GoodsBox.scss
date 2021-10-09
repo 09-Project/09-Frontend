@@ -90,6 +90,8 @@
     background-color: #9a9a9a;
     position: relative;
     img {
+      width: 100%;
+      height: 100%;
       color: white;
       font-size: 30px;
       font-family: "Noto Sans CJK KR";
@@ -125,6 +127,10 @@
       .won {
         font-size: 16px;
         margin-top: 11px;
+      }
+      .donation {
+        font-size: 24px;
+        font-weight: bold;
       }
     }
     .myPagetypeofGoods {
