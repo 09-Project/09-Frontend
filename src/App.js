@@ -4,7 +4,7 @@ import Footer from "./Components/Footer/Footer";
 import LoginModal from "./Components/LoginModal/LoginModal";
 import { BrowserRouter } from 'react-router-dom';
 import { Route } from "react-router";
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import SignUp from "./Components/SignUpPage/SignUp";
 import Product from "./Pages/Product/Product";
 import MyPage from "./Pages/MyPage/MyPage";
@@ -22,7 +22,9 @@ function App() {
   const [loginStatus,setLoginStatus] = useState(false);
   const [loginModalStatus,setLoginModalStatus] = useState(false);
   // axios.get(API_HOST+'/post').then(res=>console.log(res.data));
-  axios.get(API_HOST+'/post').then(res=>setRecomendGoddsArr(res.data))
+  useEffect(()=>{
+    axios.get(API_HOST+'/post').then(res=>setRecomendGoddsArr(res.data))
+  },[]);
   const [RecomendGoddsArr,setRecomendGoddsArr] = useState([])
   const [myProductArr,setMyProductArr] = useState([
     {
