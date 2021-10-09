@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './MainPage.scss';
 import GoodsBox from '../../Components/GoodsBox/GoodsBox';
 import { useLocation } from 'react-router';
@@ -7,24 +7,18 @@ function MainPage(props){
   const location = useLocation();
   const isSearchResult = location.pathname.includes('search');
   const {RecomendGoddsArr,myWishList} = props;
-  const [selected,setSelected] = useState([true,false,false,false,false]);
-  const onClickSelectBtn = (e) => {
-    const nextArr = [false,false,false,false,false];
-    nextArr[e] = true;
-    setSelected(nextArr);
+  const [pagenationStartIndex, setPagenationStartIndex] = useState(1);
+  const [page, setPage] = useState(1);
+  const onClickSelectBtn = (nextPageIndex) => {
+    setPage(nextPageIndex);
   }
 
-  const [btnNum,setBtnNum] = useState([1,2,3,4,5]);
   const onClickPrevBtns = () => {
-    if(btnNum[0] > 1){
-      const nextArr = [btnNum[0]-1,btnNum[1]-1,btnNum[2]-1,btnNum[3]-1,btnNum[4]-1];
-      setBtnNum(nextArr);
-    }
+    setPagenationStartIndex(Math.max(pagenationStartIndex - 1, 1));
   }
   
   const onClickNextBtns = () => {
-    const nextArr = [btnNum[0]+1,btnNum[1]+1,btnNum[2]+1,btnNum[3]+1,btnNum[4]+1];
-    setBtnNum(nextArr);
+    setPagenationStartIndex(pagenationStartIndex + 1);
   }
   const {isResult} = props;
   return(
@@ -44,11 +38,18 @@ function MainPage(props){
           <section className="changeRecommendedPageSection">
                 <ul className="changeBtns">
                   <li onClick={onClickPrevBtns} className="eachBtn arrow">{"<"}</li>
-                  <li onClick={()=>onClickSelectBtn(0)} className={ selected[0] ? "selected eachBtn" : "eachBtn isNotSelected"}>{btnNum[0]}</li>
-                  <li onClick={()=>onClickSelectBtn(1)} className={ selected[1] ? "selected eachBtn" : "eachBtn isNotSelected"}>{btnNum[1]}</li>
-                  <li onClick={()=>onClickSelectBtn(2)} className={ selected[2] ? "selected eachBtn" : "eachBtn isNotSelected"}>{btnNum[2]}</li>
-                  <li onClick={()=>onClickSelectBtn(3)} className={ selected[3] ? "selected eachBtn" : "eachBtn isNotSelected"}>{btnNum[3]}</li>
-                  <li onClick={()=>onClickSelectBtn(4)} className={ selected[4] ? "selected eachBtn" : "eachBtn isNotSelected"}>{btnNum[4]}</li>
+
+                  {
+                    Array(5).fill(void 0).map(
+                      (item, index) => {
+                        const targetPage = pagenationStartIndex + index;
+                        
+                        return (
+                          <li onClick={()=>onClickSelectBtn(targetPage)} className={"eachBtn " +  (page === targetPage ? 'selected' : 'isNotSelected')}>{targetPage}</li>     
+                        )
+                      }
+                    )
+                  }
                   <li onClick={onClickNextBtns} className="eachBtn arrow">{">"}</li>
                 </ul>
           </section>
