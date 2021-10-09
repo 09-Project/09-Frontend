@@ -7,12 +7,13 @@ import { faTimes,faEye,faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import OutsideClickHandler from 'react-outside-click-handler';
 import Symbol from '../../assets/images/Symbol.png';
 import axios from 'axios';
+import { API_HOST } from '../../constant/api';
+
 function LoginModal(props){
   const {onclickModalOnOff,setLoginModalStatus,setLoginStatus} = props;
   const [eye,setEye] = useState(false);
   const onClickChangeEye = () => {
-    if(eye) setEye(false);
-    else setEye(true);
+    setEye(!eye);
   }
   const [loginContent,setLoginContent] = useState({
     username : '',
@@ -20,18 +21,18 @@ function LoginModal(props){
   })
   const {username,password} = loginContent;
   const onChangeLoginContent = (e) => {
-    const nextObj = {
+    setLoginContent({
       ...loginContent,
       [e.target.name] : e.target.value
-    }
-    setLoginContent(nextObj);
+    });
   }
   const onClickLogin = () => {
-    axios.post('http://3.36.26.221:8080/member/auth/login',{
-      "username" : username,
-      "password" : password
+    axios.post(API_HOST + '/member/auth/login',{
+      username,
+      password
     })
-    .then(function(){
+    .then(function(e){
+      console.log(e);
       setLoginStatus(true);
       setLoginModalStatus(false)
     })
@@ -41,7 +42,6 @@ function LoginModal(props){
       <OutsideClickHandler onOutsideClick={()=>{
         setLoginModalStatus(false)
       }}>
-        {console.log(loginContent)}
       <div className="modalContents">
         <div onClick={onclickModalOnOff} className="closeImg" ><FontAwesomeIcon icon={faTimes}/></div>
         <i><img src={Symbol} alt="" /></i>
@@ -50,7 +50,7 @@ function LoginModal(props){
         <input onChange={onChangeLoginContent} value={username}  name="username" type="text" className="input inputBorder" placeholder="ID" />
         <div className="input inputBorder"><input type={eye ? "text" : "password"} name="password" onChange={onChangeLoginContent} value={password} placeholder="PASSWORD" id="loginPassword" /><label htmlFor="loginPassword"><FontAwesomeIcon onClick={onClickChangeEye} icon={faEye}/></label></div>
         <div className="saveIdBox">
-            <input className="saveId" type="checkbox" /><p>아이디 저장</p>
+            <input className="saveId" id="saveId" type="checkbox" /><label htmlFor="saveId"><p>아이디 저장</p></label>
         </div>
         <div className="buttonBox">
           <button className="LoginBtn button" onClick={onClickLogin}>LOGIN</button>
