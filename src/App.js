@@ -16,15 +16,13 @@ import {API_HOST} from './constant/api'
 
 function App() {
   const onclickModalOnOff = () => {
-    if(loginModalStatus) setLoginModalStatus(false);
-    else setLoginModalStatus(true)
+    setLoginModalStatus(!loginModalStatus)
   }
+  useEffect(()=>{
+    axios.get(API_HOST+'/post').then(res=>setRecomendGoddsArr(res.data));
+},[]);
   const [loginStatus,setLoginStatus] = useState(false);
   const [loginModalStatus,setLoginModalStatus] = useState(false);
-  // axios.get(API_HOST+'/post').then(res=>console.log(res.data));
-  useEffect(()=>{
-    axios.get(API_HOST+'/post').then(res=>setRecomendGoddsArr(res.data))
-  },[]);
   const [RecomendGoddsArr,setRecomendGoddsArr] = useState([])
   const [myProductArr,setMyProductArr] = useState([
     {
@@ -141,7 +139,7 @@ function App() {
         </Route>
         <Header loginStatus={loginStatus} onclickModalOnOff={onclickModalOnOff} setSelectedTypeBox={setSelectedTypeBox}/>
         <Route exact path="/">
-          <MainPage component={MainPage} RecomendGoddsArr={RecomendGoddsArr}/>
+          <MainPage component={MainPage} RecomendGoddsArr={RecomendGoddsArr} setRecomendGoddsArr={setRecomendGoddsArr}/>
           </Route>
         <Route path="/product" >
           <Product component={Product}/>

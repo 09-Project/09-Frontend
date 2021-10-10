@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './MainPage.scss';
 import GoodsBox from '../../Components/GoodsBox/GoodsBox';
-import { useLocation } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import Banner from '../../assets/images/banner_09.jpg'
+import { API_HOST } from '../../constant/api';
+import axios from 'axios';
 function MainPage(props){
+  const {RecomendGoddsArr,myWishList,setRecomendGoddsArr} = props;
   const location = useLocation();
   const isSearchResult = location.pathname.includes('search');
-  const {RecomendGoddsArr,myWishList} = props;
   const [pagenationStartIndex, setPagenationStartIndex] = useState(1);
   const [page, setPage] = useState(1);
-  const onClickSelectBtn = (nextPageIndex) => {
+  const history = useHistory();
+
+  const onClickSelectBtn =(nextPageIndex) => {
     setPage(nextPageIndex);
+    history.push('?page=' + (nextPageIndex-1));
+      axios.get(API_HOST+'/post?page='+(nextPageIndex-1)).then(res => setRecomendGoddsArr(res.data));
   }
+
 
   const onClickPrevBtns = () => {
     setPagenationStartIndex(Math.max(pagenationStartIndex - 1, 1));
