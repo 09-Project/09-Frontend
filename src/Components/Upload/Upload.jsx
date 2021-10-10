@@ -4,8 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCamera } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 import { API_HOST } from '../../constant/api';
+
+const CO_BUYING_RADIO_ID = 'co-buying';
+const DONATION_RADIO_ID = 'donation';
+
 function Upload(props){
-    const [checked,setChecked] = useState([true,false])
+    const [selectedRadio,setSelectedRadio] = useState("co-buying");
     const [textCount,setTextCount] = useState({
         title : 0,
         titleValue : '',
@@ -18,6 +22,11 @@ function Upload(props){
         introduceLimit : 550
     }
     const {titleLimit,introduceLimit} = limit;
+    const onChangeRadio = (event) => {
+        const { id } = event.target;
+
+        setSelectedRadio(id);
+    }
     const onChangeTextCount = (e) => {
         if((e.target.name === "title" && e.target.value.length <= titleLimit) || (e.target.name === "introduce" && e.target.value.length <= introduceLimit)){
             setTextCount({
@@ -26,11 +35,6 @@ function Upload(props){
                 [e.target.name+'Value'] : e.target.value
             })
         }
-    }
-    const onClickCheckBox = (e) => {
-        const nextarr = [false,false];
-        nextarr[e] = true;
-        setChecked(nextarr)
     }
     const [textContent,setTextContent] = useState({
         price : 0,
@@ -62,8 +66,8 @@ function Upload(props){
       <section className="uploadPage">
           <div className="introducing"><h1>게시물 올리기</h1><p>*은 필수항목입니다</p></div>
           <section className="selectPostOption">
-            <label><div><input type="radio" name="typeCheckbox" className="checkbox-round" checked="checked"  /></div>공동구매</label>
-            <label><div><input type="radio" name="typeCheckbox" className="checkbox-round" /></div>기부</label>
+            <label><div><input type="radio" onChange={onChangeRadio} name="typeCheckbox" id={CO_BUYING_RADIO_ID} className="checkbox-round" checked={selectedRadio === CO_BUYING_RADIO_ID}  /></div>공동구매</label>
+            <label><div><input type="radio" onChange={onChangeRadio} name="typeCheckbox" id={DONATION_RADIO_ID} className="checkbox-round" checked={selectedRadio === DONATION_RADIO_ID}/></div>기부</label>
           </section>
           <section className="uploadImgSection">
             <div className="imgCount"><p>상품 이미지</p><p>(3/4)</p></div>
@@ -78,7 +82,7 @@ function Upload(props){
               <div className="title"><h3>글 제목*</h3><input name="title" type="text" placeholder="글 제목을 입력해주세요" onChange={onChangeTextCount} value={titleValue} /><p className="letterCount">({title}/{titleLimit})</p></div>
               <div className="introduce"><h3>글 설명</h3><textarea name="introduce" placeholder="글 설명을 입력해주세요" onChange={onChangeTextCount} value={introduceValue}/><p>({introduce}/{introduceLimit})</p></div>
           </section>
-          {checked[0] ? 
+          {selectedRadio === CO_BUYING_RADIO_ID ? 
           <section className="productPrice">
               <div className="price"><h3>가격*</h3><input name="price" onChange={onChangeTextContent} type="text" placeholder="숫자만 입력해주세요" className="priceInput" /><p>원</p></div>
           </section> : ''
