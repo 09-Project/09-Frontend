@@ -7,9 +7,10 @@ import { Link } from 'react-router-dom';
 function GoodsBox(props){
     const {value,mypage} = props;
     const [isFinish,setIsFinish] = useState(value.completed !== "IN_PROGRESS");
+    const thisProductLink = '/product?post_id='+value.id;
   return(
       <div className={mypage  ?  "myPageProduct" : "goodsComponent"}>
-            <Link to="/product" className="GoodsBoxEachBox">
+            <Link to={thisProductLink} className="GoodsBoxEachBox">
                 <div className="GoodsImg">
                     <img src={value.image} alt="IMG" />
                     {isFinish ? <div className="termination">종료</div> : ''}
