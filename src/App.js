@@ -137,10 +137,10 @@ function App() {
         <Route path="/signup">
           <SignUp  />
         </Route>
-        <Header loginStatus={loginStatus} onclickModalOnOff={onclickModalOnOff} setSelectedTypeBox={setSelectedTypeBox}/>
+        <Header loginStatus={loginStatus} onclickModalOnOff={onclickModalOnOff} setSelectedTypeBox={setSelectedTypeBox} setRecomendGoddsArr={setRecomendGoddsArr}/>
         <Route exact path="/">
           <MainPage component={MainPage} RecomendGoddsArr={RecomendGoddsArr} setRecomendGoddsArr={setRecomendGoddsArr}/>
-          </Route>
+        </Route>
         <Route path="/product" >
           <Product component={Product}/>
           </Route>

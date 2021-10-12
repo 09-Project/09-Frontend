@@ -7,8 +7,10 @@ import { Redirect, useHistory } from 'react-router-dom';
 import {useLocation} from 'react-router';
 import logo from '../../assets/images/logo_09.png'
 import symbol from '../../assets/images/Symbol.png';
+import axios from 'axios';
+import { API_HOST } from '../../constant/api';
 function Header(props){
-    const {loginStatus,onclickModalOnOff,setSelectedTypeBox} = props;
+    const {loginStatus,onclickModalOnOff,setSelectedTypeBox,setRecomendGoddsArr} = props;
     const location = useLocation();
     const isEmpty = location.pathname.includes('search');
     const history = useHistory();
@@ -16,7 +18,8 @@ function Header(props){
         if(e.key == 'Enter' && e.target.value.length > 0) onSubmit(e.target.value);
     }
     const onSubmit = (e) => {
-        history.push(`/search?name=${e}`);
+        axios.get(API_HOST+'/post/search?keyword='+e).then(res=>setRecomendGoddsArr(res.data))
+        // history.push(`/search?keyword=${e}`);
     }
   return(
       <section className="HeaderSection">
@@ -38,7 +41,7 @@ function Header(props){
                 </nav>
             </div>
         </div>
-        
+
       </section>
   );
 }

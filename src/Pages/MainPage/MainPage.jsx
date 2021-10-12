@@ -12,14 +12,14 @@ function MainPage(props){
   const [pagenationStartIndex, setPagenationStartIndex] = useState(1);
   const [page, setPage] = useState(1);
   const history = useHistory();
-
   const onClickSelectBtn =(nextPageIndex) => {
     setPage(nextPageIndex);
     history.push('?page=' + (nextPageIndex-1));
-      axios.get(API_HOST+'/post?page='+(nextPageIndex-1)).then(res => setRecomendGoddsArr(res.data));
+    axios.get(API_HOST+'/post?page='+(nextPageIndex-1)).then(res => setRecomendGoddsArr(res.data));
   }
-
-
+  useEffect(()=>{
+    console.log(RecomendGoddsArr);
+  },[RecomendGoddsArr])
   const onClickPrevBtns = () => {
     setPagenationStartIndex(Math.max(pagenationStartIndex - 1, 1));
   }
