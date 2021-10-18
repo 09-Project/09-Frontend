@@ -5,7 +5,7 @@ import { useHistory, useLocation } from 'react-router';
 import { API_HOST } from '../../constant/api';
 import axios from 'axios';
 function GoodsContainer(props){
-    const {RecomendGoddsArr,myWishList,setRecomendGoddsArr} = props;
+    const {RecomendGoddsArr,myWishList,setRecomendGoddsArr,isResult} = props;
   const location = useLocation();
   const isSearchResult = location.pathname.includes('search');
   const [pagenationStartIndex, setPagenationStartIndex] = useState(1);
@@ -26,7 +26,6 @@ function GoodsContainer(props){
   const onClickNextBtns = () => {
     setPagenationStartIndex(pagenationStartIndex + 1);
   }
-  const {isResult} = props;
   return(
       <section className="goodsContainer">
           <div className="RecommendedGoodsContainer">

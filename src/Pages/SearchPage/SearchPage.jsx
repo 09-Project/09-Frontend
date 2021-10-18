@@ -4,13 +4,13 @@ import './SearchPage.scss';
 import MainPage from '../MainPage/MainPage';
 import GoodsContainer from '../../Components/GoodsContainer/GoodsContainer';
 function SearchPage(props){
+  const {RecomendGoddsArr,serachResult} = props;
   function useQuery(){
     return new URLSearchParams(useLocation().search);
   }
   const query = useQuery();
-  const isResult =  query.get("name");
+  const isResult =  query.get("keyword");
     const location = useLocation();
-    const {RecomendGoddsArr} = props;
     location.pathname = 'search';
     const [resultCount,setResultCount] = useState(1);
   return(

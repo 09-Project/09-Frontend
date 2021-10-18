@@ -10,7 +10,7 @@ import symbol from '../../assets/images/Symbol.png';
 import axios from 'axios';
 import { API_HOST } from '../../constant/api';
 function Header(props){
-    const {loginStatus,onclickModalOnOff,setSelectedTypeBox,setRecomendGoddsArr} = props;
+    const {loginStatus,onclickModalOnOff,setSelectedTypeBox,setRecomendGoddsArr,setSearchResult} = props;
     const location = useLocation();
     const isEmpty = location.pathname.includes('search');
     const history = useHistory();
@@ -18,7 +18,7 @@ function Header(props){
         if(e.key == 'Enter' && e.target.value.length > 0) onSubmit(e.target.value);
     }
     const onSubmit = (e) => {
-        axios.get(API_HOST+'/post/search?keyword='+e).then(res=>setRecomendGoddsArr(res.data))
+        axios.get(API_HOST+'/post/search?keyword='+e).then(res=>setSearchResult(res.data))
         history.push(`/search?keyword=${e}`);
     }
   return(
