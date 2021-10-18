@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import './SearchPage.scss';
 import MainPage from '../MainPage/MainPage';
 import GoodsContainer from '../../Components/GoodsContainer/GoodsContainer';
+import axios from 'axios';
 function SearchPage(props){
-  const {RecomendGoddsArr,serachResult} = props;
   function useQuery(){
     return new URLSearchParams(useLocation().search);
   }
   const query = useQuery();
   const isResult =  query.get("keyword");
-    const location = useLocation();
-    location.pathname = 'search';
-    const [resultCount,setResultCount] = useState(1);
+    const [resultCount,setResultCount] = useState(0);
+    useEffect(()=>{
+      axios.get(`http://3.36.26.221:8080/post/search?keyword=${isResult}`).then(res => {
+        setResultCount(res.data.length)
+      });
+    },[isResult])
   return(
       <section className="searchPage">
           {resultCount <= 0 ?
@@ -28,7 +31,7 @@ function SearchPage(props){
               </div>
           </section> : 
           <section className="searchResult">
-              <GoodsContainer RecomendGoddsArr={RecomendGoddsArr} isResult={isResult} />
+              <GoodsContainer isResult={isResult} />
           </section>
         }
       </section> 

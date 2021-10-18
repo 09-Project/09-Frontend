@@ -25,7 +25,6 @@ function App() {
   const [loginStatus,setLoginStatus] = useState(false);
   const [loginModalStatus,setLoginModalStatus] = useState(false);
   const [RecomendGoddsArr,setRecomendGoddsArr] = useState([])
-  const [serachResult,setSearchResult] = useState([]);
   const [myProductArr,setMyProductArr] = useState([
     {
       type:"공동구매",
@@ -140,7 +139,7 @@ function App() {
         <Route path="/signup">
           <SignUp  />
         </Route>
-        <Header loginStatus={loginStatus} onclickModalOnOff={onclickModalOnOff} setSelectedTypeBox={setSelectedTypeBox} setRecomendGoddsArr={setRecomendGoddsArr} setSearchResult={setSearchResult}/>
+        <Header loginStatus={loginStatus} onclickModalOnOff={onclickModalOnOff} setSelectedTypeBox={setSelectedTypeBox}/>
         <Route exact path="/">
           <MainPage component={MainPage} RecomendGoddsArr={RecomendGoddsArr} setRecomendGoddsArr={setRecomendGoddsArr}/>
         </Route>
@@ -157,7 +156,7 @@ function App() {
             <RectifyPage component={RectifyPage}/>
           </Route>
           <Route path="/search">
-            <SearchPage component={SearchPage} RecomendGoddsArr={RecomendGoddsArr} serachResult={serachResult}/>
+            <SearchPage component={SearchPage} />
           </Route>
         <Footer/>
       </BrowserRouter>

@@ -5,20 +5,28 @@ import { useHistory, useLocation } from 'react-router';
 import { API_HOST } from '../../constant/api';
 import axios from 'axios';
 function GoodsContainer(props){
-    const {RecomendGoddsArr,myWishList,setRecomendGoddsArr,isResult} = props;
+  const {isResult} = props;
   const location = useLocation();
   const isSearchResult = location.pathname.includes('search');
   const [pagenationStartIndex, setPagenationStartIndex] = useState(1);
+  const [thisPageGoodsArr,setThisPageGoodsArr] = useState([]);
   const [page, setPage] = useState(1);
+  useEffect(()=>{
+    if(!isSearchResult)axios.get(API_HOST+'/post?page='+(page-1)).then(res => setThisPageGoodsArr(res.data));
+    else axios.get(`${API_HOST}/post/search?keyword=${isResult}&page=${page-1}`).then(res=>setThisPageGoodsArr(res.data));
+  },[isResult])
   const history = useHistory();
   const onClickSelectBtn =(nextPageIndex) => {
     setPage(nextPageIndex);
-    history.push('?page=' + (nextPageIndex-1));
-    axios.get(API_HOST+'/post?page='+(nextPageIndex-1)).then(res => setRecomendGoddsArr(res.data));
+    if(isSearchResult) {
+      history.push(`/search?keyword=${isResult}&page=${nextPageIndex-1}`);
+      axios.get(`${API_HOST}/post/search?keyword=${isResult}&page=${nextPageIndex-1}`).then(res=>setThisPageGoodsArr(res.data));
+    }
+    else {
+      // history.push('search/post?page='+(nextPageIndex-1))
+      axios.get(API_HOST+'/post?page='+(nextPageIndex-1)).then(res => setThisPageGoodsArr(res.data));
+    }
   }
-  useEffect(()=>{
-    console.log(RecomendGoddsArr);
-  },[RecomendGoddsArr])
   const onClickPrevBtns = () => {
     setPagenationStartIndex(Math.max(pagenationStartIndex - 1, 1));
   }
@@ -31,7 +39,7 @@ function GoodsContainer(props){
           <div className="RecommendedGoodsContainer">
             <p className={"RecomendedGoods"}>{isSearchResult ? <div className="RecomendedGoods" style={{margin:'0px'}}><p style={{fontSize:'40px',color:'#4A55B5',fontWeight:'bold'}}>"{isResult}"</p>&nbsp;검색결과</div>:"추천 상품"}</p>
             <section className="RecomendedGoodsBox">
-              {RecomendGoddsArr.map((line)=>
+              {thisPageGoodsArr.map((line)=>
                   <GoodsBox value={line} mypage={false}/>
               )}
             </section>
@@ -39,7 +47,6 @@ function GoodsContainer(props){
           <section className="changeRecommendedPageSection">
                 <ul className="changeBtns">
                   <li onClick={onClickPrevBtns} className="eachBtn arrow">{"<"}</li>
-
                   {
                     Array(5).fill(void 0).map(
                       (item, index) => {
