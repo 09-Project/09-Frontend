@@ -10,7 +10,7 @@ import axios from 'axios';
 import { API_HOST } from '../../constant/api';
 
 function LoginModal(props){
-  const {onclickModalOnOff,setLoginModalStatus,setLoginStatus} = props;
+  const {onclickModalOnOff,setLoginModalStatus,setLoginStatus,setToken,token} = props;
   const [eye,setEye] = useState(false);
   const onClickChangeEye = () => {
     setEye(!eye);
@@ -31,10 +31,11 @@ function LoginModal(props){
       username,
       password
     })
-    .then(function(e){
-      console.log(e);
+    .then(function(res){
+      setToken(res.data.access_token);
       setLoginStatus(true);
-      setLoginModalStatus(false)
+      setLoginModalStatus(false);
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     })
   }
   return(

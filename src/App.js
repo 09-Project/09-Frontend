@@ -13,6 +13,7 @@ import RectifyPage from "./Pages/RectifyPage/RectifyPage";
 import SearchPage from "./Pages/SearchPage/SearchPage";
 import axios from "axios";
 import {API_HOST} from './constant/api'
+import GoodsContainer from "./Components/GoodsContainer/GoodsContainer";
 
 function App() {
   const onclickModalOnOff = () => {
@@ -129,11 +130,12 @@ function App() {
       status : false
     },
   ])
+  const [token,setToken] = useState('');
   const [selectedTypeBox,setSelectedTypeBox] = useState([true,false,false]);
   return (
     <div className="App">
       <BrowserRouter>
-        {loginModalStatus ? <LoginModal setLoginModalStatus={setLoginModalStatus} onclickModalOnOff={onclickModalOnOff} setLoginStatus={setLoginStatus} />: ''}
+        {loginModalStatus ? <LoginModal setLoginModalStatus={setLoginModalStatus} setToken={setToken} token={token} onclickModalOnOff={onclickModalOnOff} setLoginStatus={setLoginStatus} />: ''}
         <Route path="/signup">
           <SignUp  />
         </Route>

@@ -19,7 +19,7 @@ function Header(props){
     }
     const onSubmit = (e) => {
         axios.get(API_HOST+'/post/search?keyword='+e).then(res=>setRecomendGoddsArr(res.data))
-        // history.push(`/search?keyword=${e}`);
+        history.push(`/search?keyword=${e}`);
     }
   return(
       <section className="HeaderSection">

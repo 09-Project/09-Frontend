@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router';
 import './SearchPage.scss';
 import MainPage from '../MainPage/MainPage';
+import GoodsContainer from '../../Components/GoodsContainer/GoodsContainer';
 function SearchPage(props){
   function useQuery(){
     return new URLSearchParams(useLocation().search);
@@ -27,7 +28,7 @@ function SearchPage(props){
               </div>
           </section> : 
           <section className="searchResult">
-              <MainPage RecomendGoddsArr={RecomendGoddsArr} isResult={isResult} />
+              <GoodsContainer RecomendGoddsArr={RecomendGoddsArr} isResult={isResult} />
           </section>
         }
       </section> 
