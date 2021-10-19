@@ -13,7 +13,7 @@ function GoodsBox(props){
           {/* {console.log(value)} */}
             <Link to={thisProductLink} className="GoodsBoxEachBox">
                 <div className="GoodsImg">
-                    <div style={{backgroundImage : `url(${value.image})`}} alt="IMG" />
+                    <div className="goodsMainImg" style={{backgroundImage : `url(${value.image})`}} alt="IMG" />
                     {isFinish ? <div className="termination">종료</div> : ''}
                 </div>
                 <div className="GoodsInfo">

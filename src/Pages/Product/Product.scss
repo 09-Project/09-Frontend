@@ -171,7 +171,7 @@
       display: flex;
       justify-content: space-between;
       .eachList {
-        img {
+        div {
           width: 120px;
           height: 120px;
         }
@@ -182,4 +182,14 @@
       }
     }
   }
+}
+.donation {
+  font-size: 32px;
+  color: black;
+  font-weight: bold;
+}
+.otherMainImg {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
 }
