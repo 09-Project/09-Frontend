@@ -8,6 +8,7 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import Symbol from '../../assets/images/Symbol.png';
 import axios from 'axios';
 import { API_HOST } from '../../constant/api';
+import { setCookie } from '../../cookie';
 
 function LoginModal(props){
   const {onclickModalOnOff,setLoginModalStatus,setLoginStatus,setToken,token} = props;
@@ -32,10 +33,11 @@ function LoginModal(props){
       password
     })
     .then(function(res){
-      setToken(res.data.access_token);
+      const {access_token} = res.data
       setLoginStatus(true);
       setLoginModalStatus(false);
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      axios.defaults.headers.common['Authorization'] = `Bearer ${access_token}`;
+      setCookie('myToken',access_token);
     })
   }
   return(

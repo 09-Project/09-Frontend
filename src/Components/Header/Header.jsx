@@ -10,7 +10,7 @@ import symbol from '../../assets/images/Symbol.png';
 import axios from 'axios';
 import { API_HOST } from '../../constant/api';
 function Header(props){
-    const {loginStatus,onclickModalOnOff,setSelectedTypeBox} = props;
+    const {loginStatus,onclickModalOnOff,setSelectedTypeBox,setLoginStatus} = props;
     const location = useLocation();
     const isEmpty = location.pathname.includes('search');
     const history = useHistory();
@@ -20,10 +20,13 @@ function Header(props){
     const onSubmit = (e) => {
         history.push(`/search?keyword=${e}`);
     }
+    const onClickLogout = () => {
+        setLoginStatus(false)
+    }
   return(
       <section className="HeaderSection">
         <div className="HeaderDiv">
-            <div className="HeaderTop"><div className="loginStatus">{loginStatus ? <p>로그아웃</p> : <div style={{display:'flex'}}><p onClick={onclickModalOnOff}>로그인</p> / <Link to="/signup"><p>회원가입</p></Link></div>}</div></div>
+            <div className="HeaderTop"><div className="loginStatus">{loginStatus ? <p onClick={onClickLogout}>로그아웃</p> : <div style={{display:'flex'}}><p onClick={onclickModalOnOff}>로그인</p> / <Link to="/signup"><p>회원가입</p></Link></div>}</div></div>
             <div className="HeaderNavBar" style={isEmpty ? {border:'none'} : {}}>
                 <div className="HeaderNavBarLeft">
                     <Link to="/" className="Logo09"><i><img className="symbol" src={symbol} alt="" /><img className="logo" src={logo} alt="Logo" /></i></Link>

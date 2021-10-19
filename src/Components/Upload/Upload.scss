@@ -65,6 +65,16 @@
       flex-direction: column;
       .imgs {
         display: flex;
+        input[type="file"] {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          border: 0;
+        }
         .eachImg {
           width: 240px;
           height: 240px;
@@ -173,8 +183,4 @@
   &:checked {
     background-color: #4a55b5;
   }
-}
-.inputFile {
-  border: none;
-  background-color: transparent;
 }

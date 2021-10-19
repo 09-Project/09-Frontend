@@ -13,7 +13,7 @@ import RectifyPage from "./Pages/RectifyPage/RectifyPage";
 import SearchPage from "./Pages/SearchPage/SearchPage";
 import axios from "axios";
 import {API_HOST} from './constant/api'
-import GoodsContainer from "./Components/GoodsContainer/GoodsContainer";
+import { getCookie } from "./cookie";
 
 function App() {
   const onclickModalOnOff = () => {
@@ -23,6 +23,7 @@ function App() {
     axios.get(API_HOST+'/post').then(res=>setRecomendGoddsArr(res.data));
 },[]);
   const [loginStatus,setLoginStatus] = useState(false);
+  useEffect(()=>{if(getCookie('myToken')) setLoginStatus(true)},[]);
   const [loginModalStatus,setLoginModalStatus] = useState(false);
   const [RecomendGoddsArr,setRecomendGoddsArr] = useState([])
   const [myProductArr,setMyProductArr] = useState([
@@ -130,16 +131,15 @@ function App() {
       status : false
     },
   ])
-  const [token,setToken] = useState('');
   const [selectedTypeBox,setSelectedTypeBox] = useState([true,false,false]);
   return (
     <div className="App">
       <BrowserRouter>
-        {loginModalStatus ? <LoginModal setLoginModalStatus={setLoginModalStatus} setToken={setToken} token={token} onclickModalOnOff={onclickModalOnOff} setLoginStatus={setLoginStatus} />: ''}
+        {loginModalStatus ? <LoginModal setLoginModalStatus={setLoginModalStatus} onclickModalOnOff={onclickModalOnOff} setLoginStatus={setLoginStatus} />: ''}
         <Route path="/signup">
           <SignUp  />
         </Route>
-        <Header loginStatus={loginStatus} onclickModalOnOff={onclickModalOnOff} setSelectedTypeBox={setSelectedTypeBox}/>
+        <Header loginStatus={loginStatus} onclickModalOnOff={onclickModalOnOff} setSelectedTypeBox={setSelectedTypeBox} setLoginStatus={setLoginStatus}/>
         <Route exact path="/">
           <MainPage component={MainPage} RecomendGoddsArr={RecomendGoddsArr} setRecomendGoddsArr={setRecomendGoddsArr}/>
         </Route>

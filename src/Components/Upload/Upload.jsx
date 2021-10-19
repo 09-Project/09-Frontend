@@ -29,22 +29,36 @@ function Upload(props){
             [e.target.name] : e.target.value
         })
     }
+    const onChangeImg = (e) => {
+        console.log(typeof(e.target.value))
+        setPostContent({
+            ...postContent,
+            [e.target.name] : e.target.value
+        })
+    }
     const onSubmitPost = () => {
-        axios.post(API_HOST + '/post',postContent).then(res=>{})
+        axios.post(API_HOST + '/post',postContent,{
+            headers: { "Content-Type": `multipart/form-data`}
+            }).then(res=>{})
+        console.log(postContent)
     }
   return(
       <section className="uploadPage">
+          {console.log(postContent)}
           <div className="introducing"><h1>게시물 올리기</h1><p>*은 필수항목입니다</p></div>
           <section className="selectPostOption">
             <label><div><input type="radio" onChange={onChangeRadio} name="typeCheckbox" id={CO_BUYING_RADIO_ID} className="checkbox-round" checked={selectedRadio === CO_BUYING_RADIO_ID}  /></div>공동구매</label>
             <label><div><input type="radio" onChange={onChangeRadio} name="typeCheckbox" id={DONATION_RADIO_ID} className="checkbox-round" checked={selectedRadio === DONATION_RADIO_ID}/></div>기부</label>
           </section>
           <section className="uploadImgSection">
-            <div className="imgCount"><p>상품 이미지</p><p>(3/4)</p></div>
+            <div className="imgCount"><p>상품 이미지</p><p>(0/1)</p></div>
             <div className="uploadImgs">
-                <ul className="imgs">
-                    <label className="eachImg"><FontAwesomeIcon className="img" icon={faCamera}/><p>이미지 등록</p></label>
-                </ul>
+                <div className="imgs">
+                    <label className="eachImg">
+                        <FontAwesomeIcon icon={faCamera} className="img" />
+                        <input type="file" name="image" id="" onChange={onChangeImg}/>
+                    </label>
+                </div>
                 <p>- 이미지는 상품등록 시 정사각형으로 잘려서 등록됩니다.</p>
             </div>
           </section>
