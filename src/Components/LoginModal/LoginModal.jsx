@@ -27,7 +27,7 @@ function LoginModal(props){
     });
   }
   const onClickLogin = () => {
-    axios.post(API_HOST + '/member/auth/login',{
+    axios.post(API_HOST + '/auth/login',{
       username,
       password
     })

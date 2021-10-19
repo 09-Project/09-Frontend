@@ -35,7 +35,7 @@ function SignUp(props){
     if(makepassword === verifyPassword){
       if(isRectify) console.log("Asd") // 비번 변경
       else {
-        axios.post(API_HOST+'/member/auth/signup',{
+        axios.post(API_HOST+'/auth/signup',{
           "name" : nickName,
           "username" : id,
           "password" : makepassword
