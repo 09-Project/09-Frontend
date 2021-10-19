@@ -14,23 +14,13 @@ function GoodsContainer(props){
   useEffect(()=>{
     if(!isSearchResult)axios.get(API_HOST+'/post?page='+(page-1)).then(res => setThisPageGoodsArr(res.data));
     else axios.get(`${API_HOST}/post/search?keyword=${isResult}&page=${page-1}`).then(res=>setThisPageGoodsArr(res.data));
-  },[isResult])
-  const history = useHistory();
+  },[isResult,page])
   const onClickSelectBtn =(nextPageIndex) => {
     setPage(nextPageIndex);
-    if(isSearchResult) {
-      history.push(`/search?keyword=${isResult}&page=${nextPageIndex-1}`);
-      axios.get(`${API_HOST}/post/search?keyword=${isResult}&page=${nextPageIndex-1}`).then(res=>setThisPageGoodsArr(res.data));
-    }
-    else {
-      // history.push('search/post?page='+(nextPageIndex-1))
-      axios.get(API_HOST+'/post?page='+(nextPageIndex-1)).then(res => setThisPageGoodsArr(res.data));
-    }
   }
   const onClickPrevBtns = () => {
     setPagenationStartIndex(Math.max(pagenationStartIndex - 1, 1));
   }
-  
   const onClickNextBtns = () => {
     setPagenationStartIndex(pagenationStartIndex + 1);
   }
@@ -40,8 +30,10 @@ function GoodsContainer(props){
             <p className={"RecomendedGoods"}>{isSearchResult ? <div className="RecomendedGoods" style={{margin:'0px'}}><p style={{fontSize:'40px',color:'#4A55B5',fontWeight:'bold'}}>"{isResult}"</p>&nbsp;검색결과</div>:"추천 상품"}</p>
             <section className="RecomendedGoodsBox">
               {thisPageGoodsArr.map((line)=>
+                <div>
                   <GoodsBox value={line} mypage={false}/>
-              )}
+                </div>
+                )}
             </section>
           </div>
           <section className="changeRecommendedPageSection">

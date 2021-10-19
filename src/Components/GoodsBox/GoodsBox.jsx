@@ -10,9 +10,10 @@ function GoodsBox(props){
     const thisProductLink = '/product?post_id='+value.id;
   return(
       <div className={mypage  ?  "myPageProduct" : "goodsComponent"}>
+          {/* {console.log(value)} */}
             <Link to={thisProductLink} className="GoodsBoxEachBox">
                 <div className="GoodsImg">
-                    <img src={value.image} alt="IMG" />
+                    <div style={{backgroundImage : `url(${value.image})`}} alt="IMG" />
                     {isFinish ? <div className="termination">종료</div> : ''}
                 </div>
                 <div className="GoodsInfo">

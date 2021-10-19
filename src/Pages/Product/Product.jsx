@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
-function Product(props){
+function Product(){
     const [otherProduct,setOhterProduct] = useState([]);
     const location = useLocation()
     useEffect(()=>{
@@ -27,7 +27,7 @@ function Product(props){
     return(
         <section className="Product">
           <div className="GoodsInfo">
-              <img src={productContent.image} alt="" className="goodsImg" />
+              <a href={productContent.image}><div style={{backgroundImage:`url(${productContent.image})`}} alt="" className="goodsImg" /></a>
               <ul className="GoodsDetails">
                     <li className="goodsTitle">{productContent.title}</li>
                     <li className="Price"><p className="goodsPrice"></p>{productContent.price}<p className="won">원</p></li>

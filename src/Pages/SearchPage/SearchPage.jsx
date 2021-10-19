@@ -5,6 +5,7 @@ import MainPage from '../MainPage/MainPage';
 import GoodsContainer from '../../Components/GoodsContainer/GoodsContainer';
 import axios from 'axios';
 function SearchPage(props){
+
   function useQuery(){
     return new URLSearchParams(useLocation().search);
   }

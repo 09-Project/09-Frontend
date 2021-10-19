@@ -10,6 +10,9 @@
     .goodsImg {
       width: 400px;
       height: 400px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
     }
     .GoodsDetails {
       width: 750px;
