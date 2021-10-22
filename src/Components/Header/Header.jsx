@@ -9,6 +9,7 @@ import logo from '../../assets/images/logo_09.png'
 import symbol from '../../assets/images/Symbol.png';
 import axios from 'axios';
 import { API_HOST } from '../../constant/api';
+import { setCookie } from '../../cookie';
 function Header(props){
     const {loginStatus,onclickModalOnOff,setSelectedTypeBox,setLoginStatus} = props;
     const location = useLocation();
@@ -21,7 +22,8 @@ function Header(props){
         history.push(`/search?keyword=${e}`);
     }
     const onClickLogout = () => {
-        setLoginStatus(false)
+        setLoginStatus(false);
+        setCookie('myToken','');
     }
   return(
       <section className="HeaderSection">

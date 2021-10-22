@@ -13,7 +13,7 @@ import RectifyPage from "./Pages/RectifyPage/RectifyPage";
 import SearchPage from "./Pages/SearchPage/SearchPage";
 import axios from "axios";
 import {API_HOST} from './constant/api'
-import { getCookie } from "./cookie";
+import { getCookie,setCookie } from "./cookie";
 
 function App() {
   const onclickModalOnOff = () => {
@@ -23,7 +23,18 @@ function App() {
     axios.get(API_HOST+'/post').then(res=>setRecomendGoddsArr(res.data));
 },[]);
   const [loginStatus,setLoginStatus] = useState(false);
-  useEffect(()=>{if(getCookie('myToken')) setLoginStatus(true)},[]);
+  useEffect(()=>{
+    const access_token = getCookie('myToken');
+    axios.get(API_HOST + '/member/information',{
+      headers:{Authorization : `Bearer ${access_token}`}
+    }).then(res => {
+      setLoginStatus(true);
+      axios.defaults.headers.common['Authorization'] = `Bearer ${access_token}`;
+    })
+    .catch(res=>{
+      setCookie('myToken','')
+    })
+  },[]);
   const [loginModalStatus,setLoginModalStatus] = useState(false);
   const [RecomendGoddsArr,setRecomendGoddsArr] = useState([])
   const [myProductArr,setMyProductArr] = useState([
