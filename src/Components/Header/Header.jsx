@@ -7,8 +7,6 @@ import { Redirect, useHistory } from 'react-router-dom';
 import {useLocation} from 'react-router';
 import logo from '../../assets/images/logo_09.png'
 import symbol from '../../assets/images/Symbol.png';
-import axios from 'axios';
-import { API_HOST } from '../../constant/api';
 import { setCookie } from '../../cookie';
 function Header(props){
     const {loginStatus,onclickModalOnOff,setSelectedTypeBox,setLoginStatus} = props;

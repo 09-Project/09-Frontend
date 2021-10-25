@@ -8,7 +8,7 @@ import { API_HOST } from '../../constant/api';
 const CO_BUYING_RADIO_ID = 'co-buying';
 const DONATION_RADIO_ID = 'donation';
 
-function Upload(props){
+function Upload(){
     const [selectedRadio,setSelectedRadio] = useState("co-buying");
     const onChangeRadio = (event) => {
         const { id } = event.target;
@@ -21,7 +21,6 @@ function Upload(props){
         transactionRegion : '',
         openChatLink : '',
         image : '',
-        headers: { "Content-Type": "multipart/form-data"}
     })
     const limitCount = {
         titleLimit : 40,
@@ -29,6 +28,13 @@ function Upload(props){
     }
     const {titleLimit,contentLimit} = limitCount;
     const {title,content,price,transactionRegion,openChatLink,image} = postContent;
+    const formData = new FormData();
+    formData.append('title',title);
+    formData.append('content',content);
+    formData.append('price',price);
+    formData.append('transactionRegion',transactionRegion);
+    formData.append('openChatLink',openChatLink);
+    formData.append('image',image);
     const onClickPostContentTop = e => {
         if(e.target.name === 'title' && e.target.value.length <= titleLimit || e.target.name === 'content' && e.target.value.length <= contentLimit){
             setPostContent({
@@ -51,7 +57,7 @@ function Upload(props){
         })
     }
     const onSubmitPost = () => {
-        axios.post(API_HOST + '/post',postContent).then(res=>{})
+        axios.post(API_HOST + '/post',formData).then(res=>{})
         console.log(postContent)
     }
   return(
